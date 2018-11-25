@@ -1837,7 +1837,8 @@ button:focus {
 }
 
 .clients_logo_area .clients_slider .item img {
-  width: auto;
+  /*width: auto;*/
+  width: 120px;
   text-align: center;
   display: block;
   margin: auto;
@@ -3673,7 +3674,7 @@ h6 {
 .builder_item:before {
   content: "";
   /*background: rgba(250, 183, 0, 0.85);*/
-  background: rgba(245, 188, 135, 0.85);
+  background: rgba(175, 175, 175, 0.65);
   position: absolute;
   left: 0px;
   top: 0px;
@@ -3703,7 +3704,8 @@ h6 {
 }
 
 .builder_item .hover h4 {
-  color: #222222;
+  /*color: #222222;*/
+  color: white;
   font-size: 20px;
   margin-bottom: 0px;
   -webkit-transition: all 300ms ease;
@@ -3718,7 +3720,8 @@ h6 {
   font-size: 14px;
   line-height: 24px;
   font-family: "Roboto", sans-serif;
-  color: #222222;
+  /*color: #222222;*/
+  color: white;
 }
 
 .builder_item:hover:before {

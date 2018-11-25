@@ -40,12 +40,16 @@
             $('.clients_slider').owlCarousel({
                 loop:true,
                 margin: 30,
-                items: 5,
+                items: 6,
                 nav: false,
-                autoplay: false,
-                smartSpeed: 1500,
+                autoplay: true,
+                autoplayTimeout: 4000,
+                // autoplayHoverPause: true,
+                // autoplaySpeed: 500,
+                // smartSpeed: 500,
                 dots:false, 
                 responsiveClass: true,
+                slideBy: 'page',
                 responsive: {
                     0: {
                         items: 1,
@@ -61,6 +65,9 @@
                     },
                     992: {
                         items: 5,
+                    },
+                    1200: {
+                        items: 6,
                     }
                 }
             })
