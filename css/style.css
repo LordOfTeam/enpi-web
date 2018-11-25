@@ -168,7 +168,7 @@ button:focus {
 .header_area .navbar .nav .nav-item .nav-link {
   font: 500 12px/100px "Poppins", sans-serif;
   text-transform: uppercase;
-  color: #222222;
+  color: gray;
   padding: 0px;
   display: inline-block;
 }
@@ -178,7 +178,7 @@ button:focus {
 }
 
 .header_area .navbar .nav .nav-item:hover .nav-link, .header_area .navbar .nav .nav-item.active .nav-link {
-  color: #151515;
+  color: #222222;
 }
 
 .header_area .navbar .nav .nav-item.submenu {
@@ -1851,6 +1851,11 @@ button:focus {
 
 .clients_logo_area .clients_slider .item:hover img {
   opacity: 1;
+}
+
+.logo_h img {
+  width: 128px;
+  height: 44px;
 }
 
 /* End Clients Logo Area css
@@ -3834,7 +3839,7 @@ h6 {
 /* Counter Area css
 ============================================================================================ */
 .counter_area {
-  background: #151515;
+  background: #222222;
   padding: 115px 0px 115px 0px;
 }
 
@@ -4096,3 +4101,8 @@ h6 {
 /*---------------------------------------------------- */
 
 /*# sourceMappingURL=style.css.map */
+
+.owl-stage {
+  display: flex;
+  align-items: center;
+}
