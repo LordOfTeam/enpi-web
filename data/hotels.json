@@ -1,0 +1,102 @@
+[
+  {
+    "name": "浦东丽思卡尔顿酒店",
+    "area": "浦东新区",
+    "address": "浦东新区 陆家嘴世纪大道8号",
+    "guestRoomReferencePrice": 2600,
+    "introDoc": "img/hotels/浦东丽思卡尔顿/Function Floor Plan and Picture.pdf",
+    "images": [
+      "img/hotels/浦东丽思卡尔顿/1.jpg",
+      "img/hotels/浦东丽思卡尔顿/2.jpg",
+      "img/hotels/浦东丽思卡尔顿/3.jpg",
+      "img/hotels/浦东丽思卡尔顿/4.jpg",
+      "img/hotels/浦东丽思卡尔顿/5.jpg",
+      "img/hotels/浦东丽思卡尔顿/6.jpg"
+    ],
+    "ballrooms": [
+      {
+        "name": "3楼 宴会厅",
+        "area": 1135,
+        "maxPeople": 1000
+      },
+      {
+        "name": "3楼多功能厅 A厅",
+        "area": 230,
+        "maxPeople": 200
+      },
+      {
+        "name": "3楼多功能厅 B厅",
+        "area": 198,
+        "maxPeople": 150
+      },
+      {
+        "name": "3楼多功能厅 C厅",
+        "area": 170,
+        "maxPeople": 150
+      }
+    ]
+  },
+  {
+    "name": "浦东嘉里大酒店",
+    "area": "浦东新区",
+    "address": "浦东新区 花木路1388号",
+    "guestRoomReferencePrice": 1800,
+    "images": [
+      "img/hotels/浦东嘉里/1.jpg",
+      "img/hotels/浦东嘉里/2.jpg",
+      "img/hotels/浦东嘉里/3.jpg",
+      "img/hotels/浦东嘉里/4.jpg",
+      "img/hotels/浦东嘉里/5.jpg",
+      "img/hotels/浦东嘉里/6.jpg"
+    ],
+    "ballrooms": [
+      {
+        "name": "3楼上海大宴会厅123",
+        "area": 2230,
+        "maxPeople": 2230
+      },
+      {
+        "name": "3楼浦东大宴会厅1-7",
+        "area": 1018,
+        "maxPeople": 840
+      },
+      {
+        "name": "贵宾厅 1",
+        "area": 138,
+        "maxPeople": 138
+      }
+    ]
+  },
+  {
+    "name": "苏宁宝丽嘉酒店",
+    "area": "虹口区",
+    "address": "虹口区 北苏州路188号",
+    "guestRoomReferencePrice": 2100,
+    "introDoc": "img/hotels/宝丽嘉/2F Floor Plan.pdf",
+    "images": [
+      "img/hotels/宝丽嘉/1.jpg",
+      "img/hotels/宝丽嘉/2.jpg",
+      "img/hotels/宝丽嘉/3.jpg",
+      "img/hotels/宝丽嘉/4.jpg",
+      "img/hotels/宝丽嘉/5.jpg",
+      "img/hotels/宝丽嘉/6.jpg"
+    ],
+    "ballrooms": [
+      {
+        "name": "2楼Ballroom",
+        "area": 700,
+        "maxPeople": 640
+      },
+      {
+        "name": "1楼宝丽嘉宴会厅II-7",
+        "area": 260,
+        "maxPeople": 200
+      },
+      {
+        "name": "1楼贝拉维宴会厅",
+        "area": 325,
+        "maxPeople": 132
+      }
+    ]
+  }
+]
