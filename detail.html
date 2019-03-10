@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <title>Builder Construction Multi</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="vendors/animate-css/animate.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+<body>
+
+<!--================Header Menu Area =================-->
+<header class="header_area">
+    <!--<div class="top_menu row m0">-->
+    <!--<div class="container">-->
+    <!--<div class="float-left">-->
+    <!--<ul class="list header_social">-->
+    <!--<li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+    <!--<li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+    <!--<li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
+    <!--<li><a href="#"><i class="fa fa-behance"></i></a></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="float-right">-->
+    <!--<select class="lan_pack">-->
+    <!--<option value="1">English</option>-->
+    <!--<option value="1">Bangla</option>-->
+    <!--<option value="1">Indian</option>-->
+    <!--<option value="1">Aus</option>-->
+    <!--</select>-->
+    <!--<a class="dn_btn" href="#">Free Quote!</a>-->
+    <!--</div>-->
+    <!--</div>	-->
+    <!--</div>	-->
+    <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">主页</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="hotels.html">酒店场馆</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">联系我们</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="service.html">Services</a>-->
+                        <!--<li class="nav-item submenu dropdown">-->
+                        <!--<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>-->
+                        <!--<ul class="dropdown-menu">-->
+                        <!--<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a>-->
+                        <!--<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>-->
+                        <!--</ul>-->
+                        <!--</li> -->
+                        <!--<li class="nav-item submenu dropdown">-->
+                        <!--<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>-->
+                        <!--<ul class="dropdown-menu">-->
+                        <!--<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>-->
+                        <!--<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>-->
+                        <!--</ul>-->
+                        <!--</li> -->
+
+                        <!--<li class="nav-item active"><a class="nav-link" href="contact.html">Contact</a></li>-->
+                    </ul>
+                    <!--<ul class="nav navbar-nav navbar-right">-->
+                    <!--<li class="nav-item"><a href="#" class="search"><i class="lnr lnr-magnifier"></i></a></li>-->
+                    <!--</ul>-->
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<!--================Header Menu Area =================-->
+
+<!--================Home Banner Area =================-->
+<!--<section class="banner_area">-->
+<!--<div class="banner_inner d-flex align-items-center">-->
+<!--<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>-->
+<!--<div class="container">-->
+<!--<div class="banner_content text-center">-->
+<!--<div class="page_link">-->
+<!--<a href="index.html">Home</a>-->
+<!--<a href="contact.html">Contact</a>-->
+<!--</div>-->
+<!--<h2>Contact Us</h2>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</section>-->
+<!--================End Home Banner Area =================-->
+
+<!--================Contact Area =================-->
+<section>
+    <style>
+        #app {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .first-row-block {
+            height: 230px;
+            /*border: 1px solid gray;*/
+        }
+
+        .hotel-images {
+            padding: 0;
+        }
+
+        .hotel-images li:first-child {
+            width: 300px;
+            height: 230px;
+        }
+
+        .hotel-images li {
+            float: left;
+            width: 130px;
+            height: 112px;
+            margin: 0 6px 6px 0;
+        }
+
+        .hotel-images li:last-child:after {
+            content: '';
+            clear: both;
+            display: block;
+            height: 0;
+        }
+
+        .hotel-images li img {
+            cursor: pointer;
+        }
+
+        .general-info {
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 15px;
+        }
+
+        .general-info .info-item {
+            width: 33.33%;
+            height: 100px;
+            float: left;
+            text-align: center;
+        }
+
+        .general-info .info-item div {
+            width: 100%;
+            height: 60%;
+            padding-top: 25px;
+        }
+
+        .general-info .info-item span {
+            display: block;
+            /*color: black;*/
+        }
+
+        .general-info .info-item span:first-child {
+            font-weight: bold;
+        }
+
+        .general-info .info-item svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .additional-info {
+            padding-top: 20px;
+        }
+
+        .additional-info div {
+            height: 40px;
+            line-height: 40px;
+            padding-left: 30px;
+        }
+
+        table tbody tr td {
+            color: black;
+        }
+
+        .mask {
+            position: fixed;
+            z-index: 3000;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            background: rgba(1, 1, 1, 0.5);
+        }
+
+        .mask img {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            top: calc(50% - 287.5px);
+        }
+    </style>
+    <div id="app">
+        <h3 style="color: black;">{{hotel.name}}</h3>
+        <h6 style="color: gray;">{{hotel.address}}</h6>
+        <div v-if="hotel.id" class="row">
+            <div class="col-xs-12 col-sm-6 first-row-block">
+                <ul v-if="hotel.images" class="hotel-images">
+                    <li v-for="(image, index) in fiveImages" :key="index">
+                        <img width="100%" height="100%" :src="image" @click="handleClickImage(image)"/>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-6 first-row-block">
+                <div class="general-info">
+                    <div class="info-item">
+                        <div>
+                            <svg t="1552223556077" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4445" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M368.896 192H224a32 32 0 0 0-32 32v137.888a32 32 0 0 0 64 0V256h112.896a32 32 0 0 0 0-64zM784.864 192H640a32 32 0 1 0 0 64h112.864v105.888a32 32 0 1 0 64 0V224a32 32 0 0 0-32-32zM368.896 777.92H256V672a32 32 0 1 0-64 0v137.92a32 32 0 0 0 32 32h144.896a32 32 0 1 0 0-64zM784.864 640a32 32 0 0 0-32 32v105.92H640a32 32 0 1 0 0 64h144.864a32 32 0 0 0 32-32V672a32 32 0 0 0-32-32z" p-id="4446"></path><path d="M912 48h-800c-35.296 0-64 28.704-64 64v800c0 35.296 28.704 64 64 64h800c35.296 0 64-28.704 64-64v-800c0-35.296-28.704-64-64-64z m-800 864v-800h800l0.064 800H112z" p-id="4447"></path></svg>
+                        </div>
+                        <span>{{hotel.maxArea}}</span>
+                        <span>最大宴会厅面积</span>
+                    </div>
+                    <div class="info-item">
+                        <div>
+                            <svg t="1552223701581" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4683" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M620.256 806.176a32 32 0 0 1-28.256-31.776v-80.736a32 32 0 0 1 13.216-25.92c52.864-38.272 99.168-99.68 124.736-169.152a32 32 0 0 1 19.584-19.2c9.76-3.36 21.536-24.224 32.416-70.72 5.92-25.152-1.024-40.96-16.576-50.4a32 32 0 0 1-15.264-24.48C736.448 181.312 650.144 96 514.24 96c-138.24 0-227.936 88.064-240.672 242.432a32 32 0 0 1-15.04 24.544c-16.416 10.24-22.272 23.36-16.224 44.032 11.392 38.88 23.84 60.352 36.8 68.48a32 32 0 0 1 13.12 16.384c25.088 70.496 72.224 133.536 126.72 173.504a32 32 0 0 1 13.056 25.792V774.4a32 32 0 0 1-28.256 31.776c-125.12 14.72-212.608 54.4-225.952 88.672 2.304 1.056 5.12 2.176 8.384 3.296 17.184 6.016 43.52 11.52 77.12 16.096 65.504 8.896 155.168 13.76 248.704 13.76s183.2-4.864 248.704-13.76c33.6-4.576 59.936-10.08 77.12-16.096 3.296-1.12 6.08-2.24 8.384-3.296-13.344-34.272-100.832-73.92-225.92-88.64z m35.744-59.776c151.36 22.656 256 79.168 256 157.376C912 970.784 755.84 992 512 992s-400-21.216-400-88.224c0-78.208 104.64-134.72 256-157.376V706.88c-56.64-45.536-104.576-110.944-132.576-184.128-23.936-19.392-40.928-51.296-54.528-97.792-12.8-43.648 0.064-81.344 30.336-106.592C231.456 140.48 346.336 32 514.24 32c165.6 0 276.992 105.728 298.08 281.44 29.44 24.864 42.72 63.904 31.968 109.856-13.312 56.768-30.848 92.512-58.976 109.632-28.448 70.624-74.976 133.184-129.312 176.576v36.896z" p-id="4684"></path></svg>
+                        </div>
+                        <span>{{hotel.maxPeople}}</span>
+                        <span>最多可容纳人数</span>
+                    </div>
+                    <div class="info-item">
+                        <div>
+                            <svg t="1552223690073" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4562" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M160 896H96V128a64 64 0 0 1 64-64h384a64 64 0 0 1 64 64v768h-64V128H160v768zM864 480h64v416h-64zM80 960a32 32 0 0 1 0-64H928a32 32 0 0 1 0 64H80z" p-id="4563"></path><path d="M971.648 482.176a32 32 0 0 1-23.296 59.648L564.16 391.84a32 32 0 0 1 23.264-59.616l384.256 149.952zM704.384 586.016a32 32 0 1 1 0 64h-128.64a32 32 0 0 1 0-64h128.64zM704.384 714.016a32 32 0 1 1 0 64h-128.64a32 32 0 0 1 0-64h128.64zM320 576a32 32 0 0 1-64 0v-64a32 32 0 0 1 64 0v64zM320 352a32 32 0 0 1-64 0V288a32 32 0 0 1 64 0v64zM448 352a32 32 0 1 1-64 0V288a32 32 0 1 1 64 0v64zM448 576a32 32 0 0 1-64 0v-64a32 32 0 0 1 64 0v64zM320 928H256v-213.984h201.6V928h-64v-149.984H320z" p-id="4564"></path></svg>
+                        </div>
+                        <span>{{hotel.ballrooms.length}}</span>
+                        <span>宴会厅数量</span>
+                    </div>
+                    <div style="clear: both;"></div>
+                    <!--<div class="info-item">-->
+                        <!--<div>-->
+                            <!--<svg t="1552223556077" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4445" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M368.896 192H224a32 32 0 0 0-32 32v137.888a32 32 0 0 0 64 0V256h112.896a32 32 0 0 0 0-64zM784.864 192H640a32 32 0 1 0 0 64h112.864v105.888a32 32 0 1 0 64 0V224a32 32 0 0 0-32-32zM368.896 777.92H256V672a32 32 0 1 0-64 0v137.92a32 32 0 0 0 32 32h144.896a32 32 0 1 0 0-64zM784.864 640a32 32 0 0 0-32 32v105.92H640a32 32 0 1 0 0 64h144.864a32 32 0 0 0 32-32V672a32 32 0 0 0-32-32z" p-id="4446"></path><path d="M912 48h-800c-35.296 0-64 28.704-64 64v800c0 35.296 28.704 64 64 64h800c35.296 0 64-28.704 64-64v-800c0-35.296-28.704-64-64-64z m-800 864v-800h800l0.064 800H112z" p-id="4447"></path></svg>-->
+                        <!--</div>-->
+                        <!--<span>{{hotel.maxArea}}</span>-->
+                        <!--<span>最大面积</span>-->
+                    <!--</div>-->
+                </div>
+                <div class="additional-info">
+                    <div>
+                        <span>平均房价: {{hotel.guestRoomReferencePrice}}</span>
+                    </div>
+                    <div>
+                        <span>最低餐标: {{hotel.guestRoomReferencePrice}}</span>
+                    </div>
+                </div>
+
+                <!--<svg t="1552223690073" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4562" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M160 896H96V128a64 64 0 0 1 64-64h384a64 64 0 0 1 64 64v768h-64V128H160v768zM864 480h64v416h-64zM80 960a32 32 0 0 1 0-64H928a32 32 0 0 1 0 64H80z" p-id="4563"></path><path d="M971.648 482.176a32 32 0 0 1-23.296 59.648L564.16 391.84a32 32 0 0 1 23.264-59.616l384.256 149.952zM704.384 586.016a32 32 0 1 1 0 64h-128.64a32 32 0 0 1 0-64h128.64zM704.384 714.016a32 32 0 1 1 0 64h-128.64a32 32 0 0 1 0-64h128.64zM320 576a32 32 0 0 1-64 0v-64a32 32 0 0 1 64 0v64zM320 352a32 32 0 0 1-64 0V288a32 32 0 0 1 64 0v64zM448 352a32 32 0 1 1-64 0V288a32 32 0 1 1 64 0v64zM448 576a32 32 0 0 1-64 0v-64a32 32 0 0 1 64 0v64zM320 928H256v-213.984h201.6V928h-64v-149.984H320z" p-id="4564"></path></svg>-->
+                <!--<svg t="1552223728498" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4799" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M800 736H448a32 32 0 0 0 0 64h352a32 32 0 0 0 0-64zM800 480H448a32 32 0 0 0 0 64h352a32 32 0 0 0 0-64zM800 224H448a32 32 0 0 0 0 64h352a32 32 0 0 0 0-64zM304 736h-64a32 32 0 0 0 0 64h64a32 32 0 0 0 0-64zM304 480h-64a32 32 0 0 0 0 64h64a32 32 0 0 0 0-64zM304 224h-64a32 32 0 0 0 0 64h64a32 32 0 0 0 0-64z" p-id="4800"></path><path d="M864 96H160a96 96 0 0 0-96 96v640a96 96 0 0 0 96 96h704a96 96 0 0 0 96-96V192a96 96 0 0 0-96-96z m32 736a32 32 0 0 1-32 32H160a32 32 0 0 1-32-32v-160h672a32 32 0 0 0 0-64H128v-192h672a32 32 0 0 0 0-64H128V192a32 32 0 0 1 32-32h704a32 32 0 0 1 32 32v640z" p-id="4801"></path></svg>-->
+                <!--<svg t="1552223701581" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4683" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M620.256 806.176a32 32 0 0 1-28.256-31.776v-80.736a32 32 0 0 1 13.216-25.92c52.864-38.272 99.168-99.68 124.736-169.152a32 32 0 0 1 19.584-19.2c9.76-3.36 21.536-24.224 32.416-70.72 5.92-25.152-1.024-40.96-16.576-50.4a32 32 0 0 1-15.264-24.48C736.448 181.312 650.144 96 514.24 96c-138.24 0-227.936 88.064-240.672 242.432a32 32 0 0 1-15.04 24.544c-16.416 10.24-22.272 23.36-16.224 44.032 11.392 38.88 23.84 60.352 36.8 68.48a32 32 0 0 1 13.12 16.384c25.088 70.496 72.224 133.536 126.72 173.504a32 32 0 0 1 13.056 25.792V774.4a32 32 0 0 1-28.256 31.776c-125.12 14.72-212.608 54.4-225.952 88.672 2.304 1.056 5.12 2.176 8.384 3.296 17.184 6.016 43.52 11.52 77.12 16.096 65.504 8.896 155.168 13.76 248.704 13.76s183.2-4.864 248.704-13.76c33.6-4.576 59.936-10.08 77.12-16.096 3.296-1.12 6.08-2.24 8.384-3.296-13.344-34.272-100.832-73.92-225.92-88.64z m35.744-59.776c151.36 22.656 256 79.168 256 157.376C912 970.784 755.84 992 512 992s-400-21.216-400-88.224c0-78.208 104.64-134.72 256-157.376V706.88c-56.64-45.536-104.576-110.944-132.576-184.128-23.936-19.392-40.928-51.296-54.528-97.792-12.8-43.648 0.064-81.344 30.336-106.592C231.456 140.48 346.336 32 514.24 32c165.6 0 276.992 105.728 298.08 281.44 29.44 24.864 42.72 63.904 31.968 109.856-13.312 56.768-30.848 92.512-58.976 109.632-28.448 70.624-74.976 133.184-129.312 176.576v36.896z" p-id="4684"></path></svg>-->
+            </div>
+        </div>
+
+        <div v-if="hotel.id">
+            <h4 style="color: black;margin-top: 20px;margin-bottom:20px;">宴会厅信息</h4>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">宴会厅名字</th>
+                    <th scope="col">面积</th>
+                    <th scope="col">层高</th>
+                    <th scope="col">全天价格</th>
+                    <th scope="col">半天价格</th>
+                    <th scope="col">歌剧式人数</th>
+                    <th scope="col">课桌式人数</th>
+                    <th scope="col">圆桌式桌数</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="room in hotel.ballrooms">
+                        <td>{{room.name}}</td>
+                        <td>{{room.area}}</td>
+                        <td>{{room.height}}</td>
+                        <td>{{room.allDayPrice}}</td>
+                        <td>{{room.halfDayPrice}}</td>
+                        <td>{{room.maxPeople || '-'}}</td>
+                        <td>{{room.kezhuoMaxPeople || '-'}}</td>
+                        <td>{{room.yuanzhuoMaxTable || '-'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--全局遮挡-->
+        <div v-if="showBigImage" class="mask" @click="handleClickMask()">
+            <img width="750" height="575" :src="curImage" />
+        </div>
+    </div>
+</section>
+<!--================Contact Area =================-->
+
+
+
+<!--================ start footer Area  =================-->
+<footer class="footer-area p_120">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="single-footer-widget ab_wd" style="display: flex; width: 100%;">
+                    <h6 class="footer_title" style="display: inline-block; flex: 0 1 100px;">关于我们</h6>
+                    <p style="display: inline-block; flex: 1 0;">整合所有媒介渠道与资源优势，提供不断创新且具有商业价
+                        值的平台和解决方案，范围涵盖各类高端时尚活动、艺术展
+                        览、零售设计等，为品牌提供全方位的“体验式营销”服务。</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="single-footer-widget contact_wd" style="display: flex; width: 100%; margin-top: 20px;">
+                    <h6 class="footer_title" style="display: inline-block; flex: 0 1 100px;">联系我们</h6>
+                    <div style="display: inline-block; flex: 1 0;">
+                        <p style="margin-bottom: 5px;">上海市真南路150号（德必易园）D101室</p>
+                        <p style="margin-bottom: 5px;">400-0708-588 （周一到周日 10:00-19:00）</p>
+                        <a href="mailto:service@enpai-e.com">service@enpai-e.com</a>
+                    </div>
+                    <!--<a href="tel:01265325689746">012-6532-568-9746</a>			-->
+                </div>
+            </div>
+            <!--<div class="col-lg-5 col-md-6 col-sm-6 offset-lg-1">-->
+            <!--<div class="single-footer-widget">-->
+            <!--<h6 class="footer_title">Newsletter</h6>-->
+            <!--<p>You can trust us. we only send promo offers, not a single spam.</p>-->
+            <!--<div id="mc_embed_signup">-->
+            <!--<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">-->
+            <!--<div class="input-group d-flex flex-row">-->
+            <!--<input name="EMAIL" placeholder="Your email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">-->
+            <!--<button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>-->
+            <!--</div>-->
+            <!--<div class="mt-10 info"></div>-->
+            <!--</form>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+        <!--<div class="row footer-bottom d-flex justify-content-between align-items-center">-->
+        <!--<p class="col-lg-8 col-md-8 footer-text m-0">&lt;!&ndash; Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. &ndash;&gt;-->
+        <!--Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved-->
+        <!--&lt;!&ndash; Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. &ndash;&gt;</p>-->
+        <!--<div class="col-lg-4 col-md-4 footer-social">-->
+        <!--<a href="#"><i class="fa fa-facebook"></i></a>-->
+        <!--<a href="#"><i class="fa fa-twitter"></i></a>-->
+        <!--<a href="#"><i class="fa fa-dribbble"></i></a>-->
+        <!--<a href="#"><i class="fa fa-behance"></i></a>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+</footer>
+<!--================ End footer Area  =================-->
+
+<!--================Contact Success and Error message Area =================-->
+<div id="success" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2>Thank you</h2>
+                <p>Your message is successfully sent...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals error -->
+
+<div id="error" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2>Sorry !</h2>
+                <p> Something went wrong </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--================End Contact Success and Error message Area =================-->
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/stellar.js"></script>
+<script src="vendors/lightbox/simpleLightbox.min.js"></script>
+<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+<script src="vendors/isotope/isotope-min.js"></script>
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="js/mail-script.js"></script>
+<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+<script src="vendors/counter-up/jquery.counterup.js"></script>
+<!-- contact js -->
+<script src="js/jquery.form.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/contact.js"></script>
+<!--gmaps Js-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>-->
+<script src="js/gmaps.min.js"></script>
+<script src="js/theme.js"></script>
+<!--vue-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+<script>
+
+  function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+    return results == null ? "": decodeURIComponent(results[1]);
+  }
+
+  new Vue({
+    el: '#app',
+
+    // render: function() {
+    //   return JSON.stringify(this.hotels)
+    // },
+
+    data: function() {
+      return {
+        hotel: {},
+
+        showBigImage: false,
+        curImage: ''
+      }
+    },
+
+    computed: {
+      fiveImages() {
+        return this.hotel.images.splice(0, 5)
+      }
+    },
+
+    methods: {
+      handleClickImage(image) {
+        this.showBigImage = true
+        this.curImage = image
+      },
+
+      handleClickMask() {
+        this.showBigImage = false
+        this.curImage = ''
+      }
+    },
+
+    created: function() {
+
+      let hotelId = getParameterByName('hotelId')
+
+      if(!hotelId) {
+        return
+      }
+      else {
+        hotelId = Number.parseInt(hotelId)
+      }
+
+      const that = this
+      $.get('data/hotels.json', function(data) {
+        Vue.nextTick(function() {
+          data.forEach(function(hotel) {
+            if(hotel.id === hotelId) {
+              hotel.maxPeople = Math.max(...(hotel.ballrooms.map(function(room) {
+                return room.maxPeople
+              })))
+              hotel.maxArea = Math.max(...(hotel.ballrooms.map(function(room) {
+                return room.area
+              })))
+              hotel.curImgIndex = 0
+
+              that.hotel = hotel
+            }
+          })
+        })
+      })
+    }
+  })
+
+</script>
+<style>
+    #app {
+        display: block;
+    }
+</style>
+</body>
+</html>

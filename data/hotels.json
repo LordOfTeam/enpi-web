@@ -1,9 +1,11 @@
 [
   {
+    "id": 1,
     "name": "浦东丽思卡尔顿酒店",
     "area": "浦东新区",
     "address": "浦东新区 陆家嘴世纪大道8号",
     "guestRoomReferencePrice": 2600,
+    "minMealCost": 550,
     "introDoc": "img/hotels/浦东丽思卡尔顿/Function Floor Plan and Picture.pdf",
     "images": [
       "img/hotels/浦东丽思卡尔顿/1.jpg",
@@ -17,30 +19,52 @@
       {
         "name": "3楼 宴会厅",
         "area": 1135,
-        "maxPeople": 1000
+        "maxPeople": 1000,
+        "kezhuoMaxPeople": 650,
+        "yuanzhuoMaxTable": 60,
+        "height": 6.5,
+        "allDayPrice": "38万",
+        "halfDayPrice": "23万"
       },
       {
         "name": "3楼多功能厅 A厅",
         "area": 230,
-        "maxPeople": 200
+        "maxPeople": 200,
+        "kezhuoMaxPeople": 120,
+        "yuanzhuoMaxTable": 10,
+        "height": 4.5,
+        "allDayPrice": "38万",
+        "halfDayPrice": "23万"
       },
       {
         "name": "3楼多功能厅 B厅",
         "area": 198,
-        "maxPeople": 150
+        "maxPeople": 150,
+        "kezhuoMaxPeople": 80,
+        "yuanzhuoMaxTable": 8,
+        "height": 4.5,
+        "allDayPrice": "38万",
+        "halfDayPrice": "23万"
       },
       {
         "name": "3楼多功能厅 C厅",
         "area": 170,
-        "maxPeople": 150
+        "maxPeople": 150,
+        "kezhuoMaxPeople": 70,
+        "yuanzhuoMaxTable": 8,
+        "height": 4.5,
+        "allDayPrice": "38万",
+        "halfDayPrice": "23万"
       }
     ]
   },
   {
+    "id": 2,
     "name": "浦东嘉里大酒店",
     "area": "浦东新区",
     "address": "浦东新区 花木路1388号",
     "guestRoomReferencePrice": 1800,
+    "minMealCost": 620,
     "images": [
       "img/hotels/浦东嘉里/1.jpg",
       "img/hotels/浦东嘉里/2.jpg",
@@ -53,25 +77,42 @@
       {
         "name": "3楼上海大宴会厅123",
         "area": 2230,
-        "maxPeople": 2230
+        "maxPeople": 2230,
+        "kezhuoMaxPeople": 1250,
+        "yuanzhuoMaxTable": 160,
+        "height": 9,
+        "allDayPrice": "38万",
+        "halfDayPrice": "23万"
       },
       {
         "name": "3楼浦东大宴会厅1-7",
         "area": 1018,
-        "maxPeople": 840
+        "maxPeople": 840,
+        "kezhuoMaxPeople": 486,
+        "yuanzhuoMaxTable": 60,
+        "height": 7,
+        "allDayPrice": "38万",
+        "halfDayPrice": "23万"
       },
       {
         "name": "贵宾厅 1",
         "area": 138,
-        "maxPeople": 138
+        "maxPeople": 138,
+        "kezhuoMaxPeople": 75,
+        "yuanzhuoMaxTable": 10,
+        "height": 4.5,
+        "allDayPrice": "38万",
+        "halfDayPrice": "23万"
       }
     ]
   },
   {
+    "id": 3,
     "name": "苏宁宝丽嘉酒店",
     "area": "虹口区",
     "address": "虹口区 北苏州路188号",
     "guestRoomReferencePrice": 2100,
+    "minMealCost": 600,
     "introDoc": "img/hotels/宝丽嘉/2F Floor Plan.pdf",
     "images": [
       "img/hotels/宝丽嘉/1.jpg",
@@ -85,17 +126,26 @@
       {
         "name": "2楼Ballroom",
         "area": 700,
-        "maxPeople": 640
+        "maxPeople": 640,
+        "height": 7,
+        "allDayPrice": "38万",
+        "halfDayPrice": "23万"
       },
       {
         "name": "1楼宝丽嘉宴会厅II-7",
         "area": 260,
-        "maxPeople": 200
+        "maxPeople": 200,
+        "height": 7,
+        "allDayPrice": "38万",
+        "halfDayPrice": "23万"
       },
       {
         "name": "1楼贝拉维宴会厅",
         "area": 325,
-        "maxPeople": 132
+        "maxPeople": 132,
+        "height": 7,
+        "allDayPrice": "38万",
+        "halfDayPrice": "23万"
       }
     ]
   }
