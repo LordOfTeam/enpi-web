@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>Builder Construction Multi</title>
+    <title>恩湃广告</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -108,6 +108,10 @@
 <!--================Contact Area =================-->
 <section>
     <style>
+        table td, table th {
+            text-align: center;
+        }
+
         #app {
             width: 1200px;
             margin: 0 auto;
@@ -207,6 +211,29 @@
             position: relative;
             top: calc(50% - 287.5px);
         }
+
+        .title-rt-btn {
+            width: 130px;
+            height: 32px;
+            overflow: hidden;
+            background: #f3870e;
+            color: white;
+        }
+
+        .title-rt-btn a {
+            display: block;
+            width: 100%;
+            padding: 6px 0;
+            text-align: center;
+            font-size: 14px;
+            line-height: 20px;
+            border-radius: 2px;
+            border: none;
+            white-space: nowrap;
+            cursor: pointer;
+            box-shadow: none;
+            color: white;
+        }
     </style>
     <div id="app">
         <h3 style="color: black;">{{hotel.name}}</h3>
@@ -251,12 +278,19 @@
                         <!--<span>最大面积</span>-->
                     <!--</div>-->
                 </div>
-                <div class="additional-info">
-                    <div>
-                        <span>平均房价: {{hotel.guestRoomReferencePrice}}</span>
+                <div style="width: 100%; position: relative;">
+                    <div style="display: inline-block; width: 40%;" class="additional-info">
+                        <div>
+                            <span>平均房价: {{hotel.guestRoomReferencePrice}}</span>
+                        </div>
+                        <div>
+                            <span>最低餐标: {{hotel.guestRoomReferencePrice}}</span>
+                        </div>
                     </div>
-                    <div>
-                        <span>最低餐标: {{hotel.guestRoomReferencePrice}}</span>
+                    <div style="display: inline-block; width: 40%; position: absolute; top: 20px;">
+                        <div v-if="hotel.introDoc" class="title-rt-btn">
+                            <a target="_blank" :href="hotel.introDoc">下载酒店资料</a>
+                        </div>
                     </div>
                 </div>
 
@@ -284,14 +318,37 @@
                 <tbody>
                     <tr v-for="room in hotel.ballrooms">
                         <td>{{room.name}}</td>
-                        <td>{{room.area}}</td>
-                        <td>{{room.height}}</td>
+                        <td>{{room.area}}m²</td>
+                        <td>{{room.height}}米</td>
                         <td>{{room.allDayPrice}}</td>
                         <td>{{room.halfDayPrice}}</td>
-                        <td>{{room.maxPeople || '-'}}</td>
-                        <td>{{room.kezhuoMaxPeople || '-'}}</td>
-                        <td>{{room.yuanzhuoMaxTable || '-'}}</td>
+                        <td>{{room.maxPeople ? room.maxPeople + '人' : '-'}}</td>
+                        <td>{{room.kezhuoMaxPeople ? room.kezhuoMaxPeople + '人' : '-'}}</td>
+                        <td>{{room.yuanzhuoMaxTable ? room.yuanzhuoMaxTable + '桌' : '-'}}</td>
                     </tr>
+                </tbody>
+            </table>
+            <h4 style="color: black;margin-top: 20px;margin-bottom:20px;">客房信息</h4>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">房型</th>
+                    <th scope="col">床型</th>
+                    <th scope="col">面积</th>
+                    <th scope="col">数量</th>
+                    <th scope="col">宽带</th>
+                    <th scope="col">刊例价</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="room in hotel.rooms">
+                    <td>{{room.type}}</td>
+                    <td>{{room.bedType}}</td>
+                    <td>{{room.area}}m²</td>
+                    <td>{{room.amount ? room.amount + '间' : '-'}}</td>
+                    <td>{{room.network}}</td>
+                    <td>{{room.price ? room.price + '元' : '-'}}</td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -313,9 +370,7 @@
             <div class="col-sm-12">
                 <div class="single-footer-widget ab_wd" style="display: flex; width: 100%;">
                     <h6 class="footer_title" style="display: inline-block; flex: 0 1 100px;">关于我们</h6>
-                    <p style="display: inline-block; flex: 1 0;">整合所有媒介渠道与资源优势，提供不断创新且具有商业价
-                        值的平台和解决方案，范围涵盖各类高端时尚活动、艺术展
-                        览、零售设计等，为品牌提供全方位的“体验式营销”服务。</p>
+                    <p style="display: inline-block; flex: 1 0;">整合所有媒介渠道与资源优势，提供不断创新且具有商业价值的平台和解决方案，范围涵盖各类高端时尚活动、艺术展览、零售设计等，为品牌提供全方位的“体验式营销”服务。</p>
                 </div>
             </div>
         </div>
@@ -477,9 +532,616 @@
         hotelId = Number.parseInt(hotelId)
       }
 
+      const data = [
+        {
+          "id": 1,
+          "name": "浦东丽思卡尔顿酒店",
+          "area": "浦东新区",
+          "address": "浦东新区 陆家嘴世纪大道8号",
+          "guestRoomReferencePrice": 2600,
+          "minMealCost": 550,
+          "introDoc": "img/hotels/浦东丽思卡尔顿/Function Floor Plan and Picture.pdf",
+          "images": [
+            "img/hotels/浦东丽思卡尔顿/1.jpg",
+            "img/hotels/浦东丽思卡尔顿/2.jpg",
+            "img/hotels/浦东丽思卡尔顿/3.jpg",
+            "img/hotels/浦东丽思卡尔顿/4.jpg",
+            "img/hotels/浦东丽思卡尔顿/5.jpg",
+            "img/hotels/浦东丽思卡尔顿/6.jpg"
+          ],
+          "ballrooms": [
+            {
+              "name": "3楼 宴会厅",
+              "area": 1135,
+              "maxPeople": 1000,
+              "kezhuoMaxPeople": 650,
+              "yuanzhuoMaxTable": 60,
+              "height": 6.5,
+              "allDayPrice": "38万",
+              "halfDayPrice": "23万"
+            },
+            {
+              "name": "3楼多功能厅 A厅",
+              "area": 230,
+              "maxPeople": 200,
+              "kezhuoMaxPeople": 120,
+              "yuanzhuoMaxTable": 10,
+              "height": 4.5,
+              "allDayPrice": "6万",
+              "halfDayPrice": "4.5万"
+            },
+            {
+              "name": "3楼多功能厅 B厅",
+              "area": 198,
+              "maxPeople": 150,
+              "kezhuoMaxPeople": 80,
+              "yuanzhuoMaxTable": 8,
+              "height": 4.5,
+              "allDayPrice": "6万",
+              "halfDayPrice": "4.5万"
+            },
+            {
+              "name": "3楼多功能厅 C厅",
+              "area": 170,
+              "maxPeople": 150,
+              "kezhuoMaxPeople": 70,
+              "yuanzhuoMaxTable": 8,
+              "height": 4.5,
+              "allDayPrice": "3.5万",
+              "halfDayPrice": "2.5万"
+            }
+          ],
+          "rooms":[
+            {
+              "type": "豪华双标房",
+              "bedType": "双床",
+              "area": 52,
+              "amount": 100,
+              "network": "有",
+              "price": 2300
+            },
+            {
+              "type": "豪华大床房",
+              "bedType": "大床",
+              "area": 52,
+              "amount": 84,
+              "network": "有",
+              "price": 2300
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "浦东嘉里大酒店",
+          "area": "浦东新区",
+          "address": "浦东新区 花木路1388号",
+          "guestRoomReferencePrice": 1800,
+          "minMealCost": 620,
+          "images": [
+            "img/hotels/浦东嘉里/1.jpg",
+            "img/hotels/浦东嘉里/2.jpg",
+            "img/hotels/浦东嘉里/3.jpg",
+            "img/hotels/浦东嘉里/4.jpg",
+            "img/hotels/浦东嘉里/5.jpg",
+            "img/hotels/浦东嘉里/6.jpg"
+          ],
+          "ballrooms": [
+            {
+              "name": "3楼上海大宴会厅123",
+              "area": 2230,
+              "maxPeople": 2230,
+              "kezhuoMaxPeople": 1250,
+              "yuanzhuoMaxTable": 160,
+              "height": 9,
+              "allDayPrice": "36万",
+              "halfDayPrice": "25.2万"
+            },
+            {
+              "name": "3楼浦东大宴会厅1-7",
+              "area": 1018,
+              "maxPeople": 840,
+              "kezhuoMaxPeople": 486,
+              "yuanzhuoMaxTable": 60,
+              "height": 7,
+              "allDayPrice": "19.8万",
+              "halfDayPrice": "12.6万"
+            },
+            {
+              "name": "贵宾厅 1",
+              "area": 138,
+              "maxPeople": 138,
+              "kezhuoMaxPeople": 75,
+              "yuanzhuoMaxTable": 10,
+              "height": 4.5,
+              "allDayPrice": "1.65万",
+              "halfDayPrice": "1.05万"
+            }
+          ],
+          "rooms":[
+            {
+              "type": "园景大床房",
+              "bedType": "大床",
+              "area": 42,
+              "amount": 170,
+              "network": "有",
+              "price": 1880
+            },
+            {
+              "type": "园景双床房",
+              "bedType": "双床",
+              "area": 42,
+              "amount": 170,
+              "network": "有",
+              "price": 1880
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "苏宁宝丽嘉酒店",
+          "area": "虹口区",
+          "address": "虹口区 北苏州路188号",
+          "guestRoomReferencePrice": 2100,
+          "minMealCost": 600,
+          "introDoc": "img/hotels/宝丽嘉/2F Floor Plan.pdf",
+          "images": [
+            "img/hotels/宝丽嘉/1.jpg",
+            "img/hotels/宝丽嘉/2.jpg",
+            "img/hotels/宝丽嘉/3.jpg",
+            "img/hotels/宝丽嘉/4.jpg",
+            "img/hotels/宝丽嘉/5.jpg",
+            "img/hotels/宝丽嘉/6.jpg"
+          ],
+          "ballrooms": [
+            {
+              "name": "2楼Ballroom",
+              "area": 700,
+              "maxPeople": 640,
+              "height": 7,
+              "allDayPrice": "20万",
+              "halfDayPrice": "12万"
+            },
+            {
+              "name": "1楼宝丽嘉宴会厅II-7",
+              "area": 260,
+              "maxPeople": 200,
+              "height": 7,
+              "allDayPrice": "10万",
+              "halfDayPrice": "6万"
+            },
+            {
+              "name": "1楼贝拉维宴会厅",
+              "area": 325,
+              "maxPeople": 132,
+              "height": 7,
+              "allDayPrice": "6万",
+              "halfDayPrice": "4万"
+            }
+          ],
+          "rooms":[
+            {
+              "type": "豪华江景大床房",
+              "bedType": "大床",
+              "area": 60,
+              "amount": 37,
+              "network": "有",
+              "price": 2600
+            },
+            {
+              "type": "豪华江景双床房",
+              "bedType": "双床",
+              "area": 60,
+              "amount": 11,
+              "network": "有",
+              "price": 2600
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "宝格丽酒店",
+          "area": "静安区",
+          "address": "静安区 河南北路33号地铁10号线天潼路站",
+          "guestRoomReferencePrice": 4500,
+          "minMealCost": 1088,
+          "images": [
+            "img/hotels/宝格丽/1.jpg",
+            "img/hotels/宝格丽/2.jpg",
+            "img/hotels/宝格丽/3.jpg",
+            "img/hotels/宝格丽/4.jpg"
+          ],
+          "ballrooms": [
+            {
+              "name": "2楼宴会厅",
+              "area": 480,
+              "height": 9.3,
+              "allDayPrice": "24万",
+              "halfDayPrice": "15万",
+              "maxPeople": 400,
+              "kezhuoMaxPeople": 250,
+              "yuanzhuoMaxTable": 25
+            },
+            {
+              "name": "2楼宴会厅",
+              "area": 140,
+              "height": 3.5,
+              "allDayPrice": "5万",
+              "halfDayPrice": "3万",
+              "maxPeople": 100
+            }
+          ],
+          "rooms":[
+            {
+              "type": "高级城市景观房",
+              "bedType": "大床",
+              "area": 65,
+              "network": "有",
+              "price": 5000
+            },
+            {
+              "type": "豪华外滩景观房",
+              "bedType": "双床",
+              "area": 52,
+              "network": "有",
+              "price": 5400
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "宝华万豪酒店",
+          "area": "静安区",
+          "address": "静安区 广中西路333号地铁1号线上海马戏城站",
+          "guestRoomReferencePrice": 980,
+          "minMealCost": 500,
+          "introDoc": "img/hotels/宝华万豪/尺寸图.pdf",
+          "images": [
+            "img/hotels/宝华万豪/1.jpg",
+            "img/hotels/宝华万豪/2.jpg",
+            "img/hotels/宝华万豪/3.jpg",
+            "img/hotels/宝华万豪/4.jpg",
+            "img/hotels/宝华万豪/5.jpg",
+            "img/hotels/宝华万豪/6.jpg"
+          ],
+          "ballrooms": [
+            {
+              "name": "2楼大宴会厅",
+              "area": 1400,
+              "height": 10,
+              "allDayPrice": "18万",
+              "maxPeople": 1400,
+              "kezhuoMaxPeople": 1000,
+              "yuanzhuoMaxTable": 100
+            },
+            {
+              "name": "2楼宴会厅",
+              "area": 1000,
+              "height": 8,
+              "allDayPrice": "15万",
+              "halfDayPrice": "8万",
+              "maxPeople": 1000,
+              "kezhuoMaxPeople": 600,
+              "yuanzhuoMaxTable": 60
+            },
+            {
+              "name": "4楼会议室1",
+              "area": 57,
+              "height": 3,
+              "allDayPrice": "0.8万",
+              "halfDayPrice": "0.6万",
+              "maxPeople": 45,
+              "kezhuoMaxPeople": 30,
+              "yuanzhuoMaxTable": 2
+            }
+          ],
+          "rooms":[
+            {
+              "type": "豪华双标房",
+              "bedType": "双床",
+              "area": 38,
+              "network": "有",
+              "price": 1020
+            },
+            {
+              "type": "豪华大床房",
+              "bedType": "大床",
+              "area": 38,
+              "network": "有",
+              "price": 1020
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "浦东东方文华酒店",
+          "area": "浦东新区",
+          "address": "浦东新区 浦东南路111号地铁2号线陆家嘴站",
+          "guestRoomReferencePrice": 1980,
+          "minMealCost": 700,
+          "introDoc": "img/hotels/文华东方/84218307476194598.jpg",
+          "images": [
+            "img/hotels/文华东方/1.jpg",
+            "img/hotels/文华东方/2.jpg",
+            "img/hotels/文华东方/3.jpg"
+          ],
+          "ballrooms": [
+            {
+              "name": "1楼文华宴会厅",
+              "area": 625,
+              "height": 8,
+              "allDayPrice": "12万",
+              "halfDayPrice": "8.4万",
+              "maxPeople": 750,
+              "kezhuoMaxPeople": 360,
+              "yuanzhuoMaxTable": 46
+            },
+            {
+              "name": "1楼东方厅",
+              "area": 325,
+              "height": 3.4,
+              "allDayPrice": "6.8万",
+              "halfDayPrice": "4.76万",
+              "maxPeople": 360,
+              "kezhuoMaxPeople": 210,
+              "yuanzhuoMaxTable": 21
+            },
+            {
+              "name": "1楼琥珀厅+明珠厅",
+              "area": 150,
+              "height": 3.2,
+              "allDayPrice": "2.4万",
+              "halfDayPrice": "1.68万",
+              "maxPeople": 90,
+              "kezhuoMaxPeople": 42,
+              "yuanzhuoMaxTable": 6
+            },
+            {
+              "name": "1楼白玉+欧泊+翡翠厅",
+              "area": 85,
+              "height": 3,
+              "allDayPrice": "2万",
+              "halfDayPrice": "1.4万",
+              "maxPeople": 70,
+              "kezhuoMaxPeople": 42,
+              "yuanzhuoMaxTable": 4
+            }
+          ],
+          "rooms": []
+        },
+        {
+          "id": 7,
+          "name": "W 酒店",
+          "area": "虹口区",
+          "address": "虹口区 旅顺路66号地铁12号线国际客运中心站",
+          "guestRoomReferencePrice": 2300,
+          "minMealCost": 680,
+          "images": [
+            "img/hotels/w酒店/1.jpg",
+            "img/hotels/w酒店/2.jpg",
+            "img/hotels/w酒店/3.jpg",
+            "img/hotels/w酒店/4.jpg",
+            "img/hotels/w酒店/5.jpg",
+            "img/hotels/w酒店/6.jpg"
+          ],
+          "ballrooms": [
+            {
+              "name": "2楼宴会厅",
+              "area": 2050,
+              "height": 6.2,
+              "allDayPrice": "60万",
+              "halfDayPrice": "46万",
+              "maxPeople": 2000,
+              "kezhuoMaxPeople": 1200,
+              "yuanzhuoMaxTable": 100
+            },
+            {
+              "name": "3楼风尚厅",
+              "area": 660,
+              "height": 4.5,
+              "allDayPrice": "22万",
+              "halfDayPrice": "15万",
+              "maxPeople": 560,
+              "kezhuoMaxPeople": 280,
+              "yuanzhuoMaxTable": 28
+            }
+          ],
+          "rooms":[
+            {
+              "type": "奇妙大床房",
+              "bedType": "大床",
+              "area": 56,
+              "amount": 90,
+              "network": "有",
+              "price": 2300
+            },
+            {
+              "type": "奇妙双床房",
+              "bedType": "双床",
+              "area": 56,
+              "amount": 56,
+              "network": "有",
+              "price": 2300
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "name": "阿纳迪酒店",
+          "area": "长宁区",
+          "address": "长宁区 临虹路7号地铁13号线祁连山路站",
+          "guestRoomReferencePrice": 2000,
+          "minMealCost": 500,
+          "images": [
+            "img/hotels/阿纳迪/1.jpg",
+            "img/hotels/阿纳迪/2.jpg",
+            "img/hotels/阿纳迪/3.jpg",
+            "img/hotels/阿纳迪/4.jpg",
+            "img/hotels/阿纳迪/5.jpg",
+            "img/hotels/阿纳迪/6.jpg"
+          ],
+          "ballrooms": [
+            {
+              "name": "1楼和合厅",
+              "area": 1200,
+              "height": 7,
+              "allDayPrice": "8万",
+              "halfDayPrice": "6万",
+              "maxPeople": 10000,
+              "kezhuoMaxPeople": 500,
+              "yuanzhuoMaxTable": 60
+            },
+            {
+              "name": "1楼和美厅",
+              "area": 600,
+              "height": 5.5,
+              "allDayPrice": "5万",
+              "halfDayPrice": "3.5万",
+              "maxPeople": 500,
+              "kezhuoMaxPeople": 260,
+              "yuanzhuoMaxTable": 35
+            },
+            {
+              "name": "1楼和馨厅",
+              "area": 400,
+              "height": 5,
+              "allDayPrice": "4万",
+              "halfDayPrice": "3万",
+              "maxPeople": 300,
+              "kezhuoMaxPeople": 160,
+              "yuanzhuoMaxTable": 21
+            }
+          ],
+          "rooms":[
+            {
+              "type": "豪华喜悦大床房",
+              "bedType": "大床",
+              "area": 45,
+              "amount": 65,
+              "network": "有",
+              "price": 2000
+            },
+            {
+              "type": "豪华喜悦双床房",
+              "bedType": "双床",
+              "area": 45,
+              "amount": 75,
+              "network": "有",
+              "price": 2000
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "上海明捷万丽酒店",
+          "area": "普陀区",
+          "address": "普陀区 铜川路50号",
+          "guestRoomReferencePrice": 658,
+          "images": [
+            "img/hotels/明捷万丽/1.jpg",
+            "img/hotels/明捷万丽/2.jpg",
+            "img/hotels/明捷万丽/3.jpg",
+            "img/hotels/明捷万丽/4.jpg"
+          ],
+          "ballrooms": [
+            {
+              "name": "宴会厅1+2+3",
+              "area": 520,
+              "height": 5.5,
+              "allDayPrice": "5.5万",
+              "halfDayPrice": "3.5万",
+              "maxPeople": 250,
+              "kezhuoMaxPeople": 300,
+              "yuanzhuoMaxTable": 300
+            },
+            {
+              "name": "多功能厅1+2+3+4",
+              "area": 220,
+              "height": 3,
+              "allDayPrice": "1.9万",
+              "halfDayPrice": "1.35万",
+              "maxPeople": 220,
+              "kezhuoMaxPeople": 120,
+              "yuanzhuoMaxTable": 120
+            }
+          ],
+          "rooms":[
+            {
+              "type": "双标房",
+              "bedType": "双床",
+              "area": 38,
+              "amount": 132,
+              "network": "有",
+              "price": 658
+            },
+            {
+              "type": "豪华大床房",
+              "bedType": "大床",
+              "area": 38,
+              "amount": 183,
+              "network": "有",
+              "price": 658
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "name": "上海衡山路十二号豪华精选酒店",
+          "area": "徐汇区",
+          "address": "徐汇区 衡山路12号",
+          "guestRoomReferencePrice": 1400,
+          "images": [
+            "img/hotels/衡山路十二号/1.jpg",
+            "img/hotels/衡山路十二号/2.jpg",
+            "img/hotels/衡山路十二号/3.jpg",
+            "img/hotels/衡山路十二号/4.jpg",
+            "img/hotels/衡山路十二号/5.jpg"
+          ],
+          "ballrooms": [
+            {
+              "name": "宴会厅",
+              "area": 450,
+              "height": 7,
+              "allDayPrice": "8.5万",
+              "halfDayPrice": "5.95万",
+              "maxPeople": 450,
+              "kezhuoMaxPeople": 270,
+              "yuanzhuoMaxTable": 280
+            },
+            {
+              "name": "衡山厅",
+              "area": 368,
+              "height": 2.7,
+              "allDayPrice": "7万",
+              "halfDayPrice": "4.9万",
+              "maxPeople": 380,
+              "kezhuoMaxPeople": 192,
+              "yuanzhuoMaxTable": 140
+            }
+          ],
+          "rooms":[
+            {
+              "type": "豪华双床房",
+              "bedType": "双床",
+              "area": 40,
+              "amount": 98,
+              "network": "有",
+              "price": 1400
+            },
+            {
+              "type": "豪华大床房",
+              "bedType": "大床",
+              "area": 40,
+              "amount": 45,
+              "network": "有",
+              "price": 1400
+            }
+          ]
+        }
+      ]
+
       const that = this
-      $.get('data/hotels.json', function(data) {
-        Vue.nextTick(function() {
+      // $.get('data/hotels.json', function(data) {
+      //   Vue.nextTick(function() {
           data.forEach(function(hotel) {
             if(hotel.id === hotelId) {
               hotel.maxPeople = Math.max(...(hotel.ballrooms.map(function(room) {
@@ -493,8 +1155,8 @@
               that.hotel = hotel
             }
           })
-        })
-      })
+        // })
+      // })
     }
   })
 
