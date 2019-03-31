@@ -26,10 +26,10 @@
 	/*----------------------------------------------------*/
     /*  Parallax Effect js
     /*----------------------------------------------------*/
-	function parallaxEffect() {
-    	$('.bg-parallax').parallax();
-	}
-	parallaxEffect();
+	// function parallaxEffect() {
+   //  	$('.bg-parallax').parallax();
+	// }
+	// parallaxEffect();
 	
 	
 	/*----------------------------------------------------*/

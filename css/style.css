@@ -433,24 +433,41 @@ button:focus {
   position: relative;
   z-index: 1;
   min-height: 700px;
+  margin-top: 71px;
 }
 
 .home_banner_area .banner_inner {
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
   width: 100%;
-  min-height: 700px;
+  height: 700px;
+  overflow-x: hidden;
 }
 
 .home_banner_area .banner_inner .overlay {
-  background: url(../img/banner/home-banner.jpg) no-repeat scroll center center;
+  /*background: url(../img/banner/home-banner.jpg) no-repeat scroll center center;*/
+  background-image: url(../img/banner/home-banner.jpg);
+  background-position: center center;
+  /*background-size: 1493px 700px;*/
+  /*background-size: 1280px 600px;*/
+  background-size: 1387px 650px;
+  background-repeat: no-repeat;
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  height: 121%;
+  height: 700px;
   bottom: 0;
   z-index: -1;
+}
+
+.home_banner_area .banner_inner .sub-form-area {
+  position: absolute;
+  height: 400px;
+  width: 300px;
+  background: white;
+  top: 150px;
+  left: calc(50% - 50px);
 }
 
 .home_banner_area .banner_inner .banner_content {

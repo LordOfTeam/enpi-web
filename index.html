@@ -86,20 +86,175 @@
             </div>
         </header>
         <!--================Header Menu Area =================-->
-        
+
+		<style>
+			.sub-form-area {
+				padding: 10px;
+				background: #f9f9f9;
+				font-family: Helvetica Neue;
+			}
+
+			.sub-form-area .sub-form-title {
+				text-align: left;
+				border-bottom: 1px dashed #ddd;
+			}
+
+			.sub-form-area .sub-form-title > h4 {
+				font-weight: 900;
+				color: black;
+				font-family: Helvetica Neue;
+			}
+
+			.sub-form-area .sub-form-title > h4:after {
+				content: '会议顾问1对1免费帮找场地';
+				color: gray;
+				font-size: 0.7em;
+				margin-left: 5px;
+			}
+
+
+
+			.sub-form-area .sub-form-group {
+				margin-top: 10px;
+			}
+
+			.sub-form-area .sub-form-group .form-title {
+				color: black;
+				font-weight: 700;
+			}
+
+			.sub-form-area .form-details {
+				height: 38px;
+				margin-left: 5px;
+			}
+
+			.sub-form-area .nice-select {
+				line-height: 30px !important;
+				float: none;
+			}
+
+			.sub-form-area .nice-select .option {
+				min-height: 30px;
+				line-height: 30px;
+			}
+
+			.sub-form-area .sub-btn {
+				width: 280px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				color: #fff;
+				font-size: 15px;
+				background-color: #08bf45;
+				cursor: pointer;
+				font-weight: 700;
+				margin-top: 10px;
+			}
+
+		</style>
+
         <!--================Home Banner Area =================-->
         <section class="home_banner_area">
             <div class="banner_inner d-flex align-items-center">
             	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
-				<div class="container">
-					<div class="banner_content text-center">
-						<h3>恩湃 <span>广告</span></h3>
-						<p>我们虔诚的感恩着所有<br />
-							我们激昂澎湃的散发创作灵感<br />
-							我们追求专业，追求细节，致力于更高的客户满意度</p>
-						<!--<a class="black_btn" href="#">Discover Now</a>-->
+				<div class="sub-form-area">
+					<div class="sub-form-title">
+						<h4>提交咨询需求</h4>
+					</div>
+					<div class="sub-form-group">
+						<label class="form-title col-form-label">活动时间</label>
+						<div class="form-details" style="display: inline-block;">
+							<input id="sub-form-date" data-language="zh" type="text" class="form-control datepicker-here" data-position="bottom left"  />
+						</div>
+					</div>
+					<div class="sub-form-group">
+						<label class="form-title col-form-label">活动城市</label>
+						<div class="form-details" style="display: inline-block;">
+							<select id="sub-form-city" class="form-control" >
+								<option value="" selected disabled>--请选择--</option>
+								<option>上海</option>
+								<option>杭州</option>
+								<option>苏州</option>
+								<option>宁波</option>
+								<option>南京</option>
+								<option>北京</option>
+								<option>深圳</option>
+								<option>武汉</option>
+								<option>成都</option>
+								<option>重庆</option>
+								<option>西安</option>
+							</select>
+						</div>
+					</div>
+					<div class="sub-form-group">
+						<label class="form-title col-form-label">活动类型</label>
+						<div class="form-details" style="display: inline-block;">
+							<select id="sub-form-type" class="form-control" >
+								<option value="" selected disabled>--请选择--</option>
+								<option>年会</option>
+								<option>培训/讲座</option>
+								<option>工作会/总结会</option>
+								<option>研讨/交流/论坛</option>
+								<option>同学会/好友聚会</option>
+								<option>经销商会议/招商会/推介会</option>
+								<option>答谢会</option>
+								<option>团队建设/扩展/休闲会议</option>
+								<option>发布会/颁奖/庆典</option>
+								<option>沙龙</option>
+								<option>Outing/会奖</option>
+								<option>暂时说不清</option>
+							</select>
+						</div>
+					</div>
+					<div class="sub-form-group">
+						<label class="form-title col-form-label">活动预算</label>
+						<div class="form-details" style="display: inline-block;">
+							<select id="sub-form-budget" class="form-control" >
+								<option value="" selected disabled>--请选择--</option>
+								<option>5千以下</option>
+								<option>5千~1万</option>
+								<option>1万~2万</option>
+								<option>2万~5万</option>
+								<option>5万~10万</option>
+								<option>10万~20万</option>
+								<option>20万以上</option>
+								<option>不确定</option>
+							</select>
+						</div>
+					</div>
+					<div class="sub-form-group">
+						<label class="form-title col-form-label">活动人数</label>
+						<div class="form-details" style="display: inline-block;">
+							<select id="sub-form-people" class="form-control" >
+								<option value="" selected disabled>--请选择--</option>
+								<option>50人以内</option>
+								<option>51~100</option>
+								<option>101~150</option>
+								<option>151~300</option>
+								<option>301~500</option>
+								<option>501~1000</option>
+								<option>1000人以上</option>
+							</select>
+						</div>
+					</div>
+					<div class="sub-form-group">
+						<label class="form-title col-form-label">您的电话</label>
+						<div class="form-details" style="display: inline-block;">
+							<input id="sub-form-phone" type="tel" class="form-control" />
+						</div>
+					</div>
+					<div id="sub-form-btn" class="sub-btn">免费帮我找场地
 					</div>
 				</div>
+				<!--<div class="container">-->
+					<!--<div class="banner_content text-center">-->
+						<!--<h3>恩湃 <span>广告</span></h3>-->
+						<!--<p>我们虔诚的感恩着所有<br />-->
+							<!--我们激昂澎湃的散发创作灵感<br />-->
+							<!--我们追求专业，追求细节，致力于更高的客户满意度</p>-->
+						<!--&lt;!&ndash;<a class="black_btn" href="#">Discover Now</a>&ndash;&gt;-->
+					<!--</div>-->
+				<!--</div>-->
             </div>
         </section>
         <!--================End Home Banner Area =================-->
@@ -570,7 +725,7 @@
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/popper.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/stellar.js"></script>
+        <!--<script src="js/stellar.js"></script>-->
         <script src="vendors/lightbox/simpleLightbox.min.js"></script>
         <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
         <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
@@ -581,5 +736,45 @@
         <script src="vendors/counter-up/jquery.counterup.js"></script>
         <script src="js/mail-script.js"></script>
         <script src="js/theme.js"></script>
+
+		<link href="libs/air-datepicker/dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
+		<script src="libs/air-datepicker/dist/js/datepicker.min.js"></script>
+
+		<!-- Include English language -->
+		<script src="libs/air-datepicker/dist/js/i18n/datepicker.zh.js"></script>
+
+		<script>
+          $('#sub-form-date').datepicker({
+            // onSelect: function (fd, d, calendar) {
+            //   console.log('tttttt')
+			 //  calendar.hide()
+            // }
+			autoClose: true
+          })
+
+			$('#sub-form-btn').click(function() {
+			  var date = document.getElementById('sub-form-date').value
+			  var city = document.getElementById('sub-form-city').value
+			  var type = document.getElementById('sub-form-type').value
+			  var budget = document.getElementById('sub-form-budget').value
+			  var people = document.getElementById('sub-form-people').value
+			  var phone = document.getElementById('sub-form-phone').value
+			  console.log(date, city, type, budget, people, phone)
+
+			  $.ajax({
+				url: '/core/apply',
+				type: 'POST',
+				body: JSON.stringify({
+                  apply_json : {
+                    'start_dt': date,
+                    'budget': budget,
+                    'people': people,
+                    'city': city,
+                    'phone': phone
+                  }
+            	})
+			  })
+			})
+		</script>
     </body>
 </html>
