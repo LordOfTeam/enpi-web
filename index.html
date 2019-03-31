@@ -753,26 +753,57 @@
           })
 
 			$('#sub-form-btn').click(function() {
-			  var date = document.getElementById('sub-form-date').value
-			  var city = document.getElementById('sub-form-city').value
-			  var type = document.getElementById('sub-form-type').value
-			  var budget = document.getElementById('sub-form-budget').value
-			  var people = document.getElementById('sub-form-people').value
-			  var phone = document.getElementById('sub-form-phone').value
-			  console.log(date, city, type, budget, people, phone)
+			  var date_elm = document.getElementById('sub-form-date')
+			  var city_elm = document.getElementById('sub-form-city')
+			  var type_elm = document.getElementById('sub-form-type')
+			  var budget_elm = document.getElementById('sub-form-budget')
+			  var people_elm = document.getElementById('sub-form-people')
+			  var phone_elm = document.getElementById('sub-form-phone')
+
+              var valid = true
+
+              for(let elm of [date_elm, city_elm, type_elm, budget_elm, people_elm, phone_elm]) {
+			    if(!elm.value) {
+                  valid = false
+			      if(elm.tagName === 'INPUT') {
+                    elm.className = elm.className.replace('is-invalid', '') + ' is-invalid'
+                  }
+                  else {
+                    elm.parentElement.children[1].className = elm.parentElement.children[1].className.replace('is-invalid', '') + ' is-invalid'
+                  }
+                }
+                else {
+                  if(elm.tagName === 'INPUT') {
+                    elm.className = elm.className.replace('is-invalid', '')
+                  }
+                  else {
+                    elm.parentElement.children[1].className = elm.parentElement.children[1].className.replace('is-invalid', '')
+                  }
+                }
+              }
+
+              if(!valid) {
+			    return
+              }
 
 			  $.ajax({
 				url: '/core/apply',
 				type: 'POST',
 				body: JSON.stringify({
                   apply_json : {
-                    'start_dt': date,
-                    'budget': budget,
-                    'people': people,
-                    'city': city,
-                    'phone': phone
+                    'start_dt': date_elm.value,
+                    'budget': budget_elm.value,
+                    'people': people_elm.value,
+                    'city': city_elm.value,
+                    'phone': phone_elm.value
                   }
-            	})
+            	}),
+                error: function() {
+                  alert('提交失败')
+                },
+                success: function() {
+				  alert('提交成功，我们将在一小时之内联系您')
+                }
 			  })
 			})
 		</script>
