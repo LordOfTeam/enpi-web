@@ -789,13 +789,15 @@
 			  $.ajax({
 				url: '/core/apply',
 				type: 'POST',
-				body: JSON.stringify({
+				contentType: 'json',
+				data: JSON.stringify({
                   apply_json : {
                     'start_dt': date_elm.value,
                     'budget': budget_elm.value,
                     'people': people_elm.value,
                     'city': city_elm.value,
-                    'phone': phone_elm.value
+                    'phone': phone_elm.value,
+					'type': type_elm.value
                   }
             	}),
                 error: function() {
