@@ -3688,6 +3688,7 @@ h6 {
 .builder_item {
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .builder_item img {
