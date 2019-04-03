@@ -168,7 +168,7 @@ button:focus {
 }
 
 .header_area .navbar .nav .nav-item .nav-link {
-  font: 500 12px/100px "Poppins", sans-serif;
+  font: 500 14px/100px "Poppins", sans-serif;
   text-transform: uppercase;
   color: gray;
   padding: 0px;
@@ -4142,4 +4142,11 @@ h6 {
 .owl-stage {
   display: flex;
   align-items: center;
+}
+
+
+.header-contact {
+  font-size: 18px;
+  font-style: italic;
+  margin-left: 20px;
 }
