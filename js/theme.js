@@ -36,6 +36,8 @@
     /*  Clients Slider
     /*----------------------------------------------------*/
     function clients_slider(){
+        return;
+
         if ( $('.clients_slider').length ){
             $('.clients_slider').owlCarousel({
                 loop:true,
