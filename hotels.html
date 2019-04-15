@@ -229,15 +229,181 @@
             color: dodgerblue;
         }
 
+        .spinner {
+            margin: 100px auto;
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .spinner > div {
+            background-color: rgb(249, 88, 18);
+            height: 100%;
+            width: 6px;
+            display: inline-block;
+
+            -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+            animation: sk-stretchdelay 1.2s infinite ease-in-out;
+        }
+
+        .spinner .rect2 {
+            -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s;
+        }
+
+        .spinner .rect3 {
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+
+        .spinner .rect4 {
+            -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+        }
+
+        .spinner .rect5 {
+            -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s;
+        }
+
+        @-webkit-keyframes sk-stretchdelay {
+            0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+            20% { -webkit-transform: scaleY(1.0) }
+        }
+
+        @keyframes sk-stretchdelay {
+            0%, 40%, 100% {
+                transform: scaleY(0.4);
+                -webkit-transform: scaleY(0.4);
+            }  20% {
+                   transform: scaleY(1.0);
+                   -webkit-transform: scaleY(1.0);
+               }
+        }
+
+        .form-inline label {
+            margin-left: 20px;
+            margin-right: 10px;
+        }
+
+        .form-control {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        select {
+            width: 120px;
+        }
+
+        .form-inline .nice-select .option {
+            min-height: 30px;
+            line-height: 30px;
+        }
+
     </style>
-    <div id="app">
-        <div class="hotel-row" v-for="hotel in hotels">
+    <div id="app" >
+        <form class="form-inline">
+            <label class="form-title col-form-label">活动城市</label>
+            <div class="form-details" style="display: inline-block;">
+                <select id="sub-form-city" class="form-control" >
+                    <option selected>上海</option>
+                </select>
+            </div>
+            <label class="form-title col-form-label">活动区域</label>
+            <div class="form-details" style="display: inline-block;">
+                <select id="sub-form-area" class="form-control" v-model="area">
+                    <option value="" selected>全部</option>
+                    <option value="黄浦区">黄浦区</option>
+
+                    <option value="徐汇区">徐汇区</option>
+
+                    <option value="长宁区">长宁区</option>
+
+                    <option value="静安区">静安区</option>
+
+                    <option value="普陀区">普陀区</option>
+
+                    <option value="虹口区">虹口区</option>
+
+                    <option value="杨浦区">杨浦区</option>
+
+                    <option value="宝山区">宝山区</option>
+
+                    <option value="闵行区">闵行区</option>
+
+                    <option value="嘉定区">嘉定区</option>
+
+                    <option value="浦东新区">浦东新区</option>
+
+                    <option value="松江区">松江区</option>
+
+                    <option value="金山区">金山区</option>
+
+                    <option value="青浦区">青浦区</option>
+
+                    <option value="奉贤区">奉贤区</option>
+
+                    <option value="崇明区">崇明区</option>
+                </select>
+            </div>
+            <label class="form-title col-form-label">价格范围</label>
+            <div class="form-details" style="display: inline-block;">
+                <select id="sub-form-price" class="form-control" v-model="price">
+                    <option value="" selected>全部</option>
+                    <option value="30000,50000">3万~5万</option>
+                    <option value="50000,100000">5万~10万</option>
+                    <option value="100000,200000">10万~20万</option>
+                    <option value="200000,500000">20万~50万</option>
+                    <option value="500000,1000000">50万~100万</option>
+                    <option value=",1000000">100万以上</option>
+                </select>
+            </div>
+            <label class="form-title col-form-label">容纳人数</label>
+            <div class="form-details" style="display: inline-block;">
+                <select id="sub-form-people" class="form-control" v-model="people">
+                    <option value="" selected>全部</option>
+                    <option value=",50">50人以内</optionvalue>
+                    <option value="50,100">50~100</option>
+                    <option value="100,150">100~150</option>
+                    <option value="150,300">150~300</option>
+                    <option value="300,500">300~500</option>
+                    <option value="500,1000">500~1000</option>
+                    <option value="1000,">1000人以上</option>
+                </select>
+            </div>
+            <label class="form-title col-form-label">会场面积</label>
+            <div class="form-details" style="display: inline-block;">
+                <select id="sub-form-arearange" class="form-control" v-model="arearange">
+                    <option value="" selected>全部</option>
+                    <option value=",200">200m²以下</option>
+                    <option value="200,400">200~400m²</option>
+                    <option value="400,600">400~600m²</option>
+                    <option value="600,800">600~800m²</option>
+                    <option value="800,1000">800~1000m²</option>
+                    <option value="1000,">1000m²以上</option>
+                </select>
+            </div>
+        </form>
+        <div v-if="loading" :style="{'height': '400px', 'line-height': '400px'}">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+        <div v-else-if="!hotels.length" style="height: 300px; line-height: 300px;">
+            <p style="color: gray;">未找到符合指定条件的场地</p>
+        </div>
+        <div v-else class="hotel-row" v-for="hotel in hotels">
             <!--{{hotel.name}}-->
             <div class="hotel-preview">
-                <img class="preview-img" :src="hotel.images[hotel.curImgIndex]">
+                <img class="preview-img" :src="'http://47.110.245.156/' + hotel.image[hotel.curImgIndex]">
                 <div class="preview-footer clear-flt">
-                    <img v-for="(imageSrc, imgIndex) in hotel.images"
-                         :src="imageSrc"
+                    <img v-for="(imageSrc, imgIndex) in hotel.image"
+                         :src="'http://47.110.245.156/' + imageSrc"
                          :style="{ border: imgIndex === hotel.curImgIndex ? '1px solid red' : '' }"
                          @mouseenter="hotel.curImgIndex = imgIndex"/>
                 </div>
@@ -246,7 +412,7 @@
                 <div class="title">
                     <h3 class="title-link"><a target="_blank" :href="'/detail.html?hotelId=' + hotel.id">{{hotel.name}}</a></h3>
                     <div v-if="hotel.introDoc" class="title-rt-btn">
-                        <a target="_blank" :href="hotel.introDoc">下载酒店资料</a>
+                        <a target="_blank" :href="'http://47.110.245.156/' + hotel.introDoc">下载酒店资料</a>
                     </div>
                 </div>
                 <p class="address">{{hotel.address}}</p>
@@ -255,8 +421,8 @@
                     <span>最多容纳：{{hotel.maxPeople}}</span>
                 </p>
                 <p class="info-item clear-flt">
-                    <span>会场数量：{{hotel.ballrooms.length}}</span>
-                    <span>客房参考价：<b style="color: #f95812">￥{{hotel.maxPeople}}</b></b>
+                    <!--<span>会场数量：{{hotel.ballrooms.length}}</span>-->
+                    <span>客房参考价：<b style="color: #f95812">￥{{hotel.guestRoomReferencePrice}}</b></b>
                 </p>
             </div>
         </div>
@@ -392,13 +558,111 @@
 
     data: function() {
       return {
-        hotels: []
+        loading: true,
+        hotels: [],
+        area: '',
+        people: '',
+        price: '',
+        arearange: ''
+      }
+    },
+
+    watch: {
+    },
+
+    methods: {
+      getList() {
+
+        this.hotels = []
+        this.loading = true
+
+        var params = []
+
+        // this.area = document.getElementById('sub-form-area').value
+        if(this.area) {
+          params.push('area=' + this.area)
+        }
+
+        // this.price = document.getElementById('sub-form-price').value
+        if(this.price) {
+          var splited = this.price.split(',')
+          if(splited[0]) {
+            params.push('price_gte=' + splited[0])
+          }
+          if(splited[1]) {
+            params.push('price_lte=' + splited[1])
+          }
+        }
+
+        // this.people = document.getElementById('sub-form-people').value
+        if(this.people) {
+          var splited = this.people.split(',')
+          if(splited[0]) {
+            params.push('people_gte=' + splited[0])
+          }
+          if(splited[1]) {
+            params.push('people_lte=' + splited[1])
+          }
+        }
+
+        // this.areaRange = document.getElementById('sub-form-area-range').value
+        if(this.arearange) {
+          var splited = this.arearange.split(',')
+          if(splited[0]) {
+            params.push('area_gte=' + splited[0])
+          }
+          if(splited[1]) {
+            params.push('area_lte=' + splited[1])
+          }
+        }
+
+        $.get('http://47.110.245.156/backend/manage/api/place-lists?' + params.join('&'), (data) => {
+          console.log('that.hotels', data)
+            Vue.nextTick(() => {
+              data.results && data.results.forEach(function(hotel) {
+              // hotel.maxPeople = Math.max(...(hotel.ballrooms.map(function(room) {
+              //   return room.maxPeople
+              // })))
+              // hotel.maxArea = Math.max(...(hotel.ballrooms.map(function(room) {
+              //   return room.area
+              // })))
+              hotel.curImgIndex = 0
+            })
+
+            this.hotels = data.results
+            this.loading = false
+          })
+      })
       }
     },
 
     created: function() {
 
-      const data = [
+      var that = this
+
+      $(document).on('click.nice_select', '.nice-select .option:not(.disabled)', function(event) {
+        var $option = $(this);
+        var $dropdown = $option.closest('.nice-select');
+        var oldSelectedValue = $dropdown.find('.selected').data('value');
+        $dropdown.find('.selected').removeClass('selected');
+        $option.addClass('selected');
+
+        var text = $option.data('display') || $option.text();
+        $dropdown.find('.current').text(text);
+
+        $dropdown.prev('select').find('option[value="' + oldSelectedValue + '"]').attr('selected',false);
+        $dropdown.prev('select').find('option[value="' + $option.data('value') + '"]').attr('selected','true');
+        $dropdown.prev('select').val($option.data('value')).change();
+
+        var selectId = $dropdown.prev('select')[0].id
+        var key = selectId.substr(9)
+        that[key] = $option.data('value')
+
+        that.getList()
+      });
+
+
+      const data1 = [
         {
           "id": 1,
           "name": "浦东丽思卡尔顿酒店",
@@ -1006,22 +1270,24 @@
         }
       ]
 
-      const that = this
-      // $.get('data/hotels.json', function(data) {
-      //   Vue.nextTick(function() {
-          data.forEach(function(hotel) {
-            hotel.maxPeople = Math.max(...(hotel.ballrooms.map(function(room) {
-              return room.maxPeople
-            })))
-            hotel.maxArea = Math.max(...(hotel.ballrooms.map(function(room) {
-              return room.area
-            })))
+      this.loading = true
+      $.get('http://47.110.245.156/backend/manage/api/place-lists', (data) => {
+        console.log('that.hotels', data)
+        Vue.nextTick(() => {
+          data.results && data.results.forEach(function(hotel) {
+            // hotel.maxPeople = Math.max(...(hotel.ballrooms.map(function(room) {
+            //   return room.maxPeople
+            // })))
+            // hotel.maxArea = Math.max(...(hotel.ballrooms.map(function(room) {
+            //   return room.area
+            // })))
             hotel.curImgIndex = 0
           })
 
-          that.hotels = data
-        // })
-      // })
+          this.hotels = data.results
+          this.loading = false
+        })
+      })
     }
   })
 

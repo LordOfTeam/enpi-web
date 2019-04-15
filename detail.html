@@ -235,128 +235,192 @@
             box-shadow: none;
             color: white;
         }
+
+        .spinner {
+            margin: 100px auto;
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .spinner > div {
+            background-color: rgb(249, 88, 18);
+            height: 100%;
+            width: 6px;
+            display: inline-block;
+
+            -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+            animation: sk-stretchdelay 1.2s infinite ease-in-out;
+        }
+
+        .spinner .rect2 {
+            -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s;
+        }
+
+        .spinner .rect3 {
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+
+        .spinner .rect4 {
+            -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+        }
+
+        .spinner .rect5 {
+            -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s;
+        }
+
+        @-webkit-keyframes sk-stretchdelay {
+            0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+            20% { -webkit-transform: scaleY(1.0) }
+        }
+
+        @keyframes sk-stretchdelay {
+            0%, 40%, 100% {
+                transform: scaleY(0.4);
+                -webkit-transform: scaleY(0.4);
+            }  20% {
+                   transform: scaleY(1.0);
+                   -webkit-transform: scaleY(1.0);
+               }
+        }
     </style>
     <div id="app">
-        <h3 style="color: black;">{{hotel.name}}</h3>
-        <h6 style="color: gray;">{{hotel.address}}</h6>
-        <div v-if="hotel.id" class="row">
-            <div class="col-xs-12 col-sm-6 first-row-block">
-                <ul v-if="hotel.images" class="hotel-images">
-                    <li v-for="(image, index) in fiveImages" :key="index">
-                        <img width="100%" height="100%" :src="image" @click="handleClickImage(image)"/>
-                    </li>
-                </ul>
+        <div v-if="!hotel.name" :style="{'height': '400px', 'line-height': '400px'}">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
             </div>
-            <div class="col-xs-12 col-sm-6 first-row-block">
-                <div class="general-info">
-                    <div class="info-item">
-                        <div>
-                            <svg t="1552223556077" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4445" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M368.896 192H224a32 32 0 0 0-32 32v137.888a32 32 0 0 0 64 0V256h112.896a32 32 0 0 0 0-64zM784.864 192H640a32 32 0 1 0 0 64h112.864v105.888a32 32 0 1 0 64 0V224a32 32 0 0 0-32-32zM368.896 777.92H256V672a32 32 0 1 0-64 0v137.92a32 32 0 0 0 32 32h144.896a32 32 0 1 0 0-64zM784.864 640a32 32 0 0 0-32 32v105.92H640a32 32 0 1 0 0 64h144.864a32 32 0 0 0 32-32V672a32 32 0 0 0-32-32z" p-id="4446"></path><path d="M912 48h-800c-35.296 0-64 28.704-64 64v800c0 35.296 28.704 64 64 64h800c35.296 0 64-28.704 64-64v-800c0-35.296-28.704-64-64-64z m-800 864v-800h800l0.064 800H112z" p-id="4447"></path></svg>
+        </div>
+        <div v-else>
+            <h3 style="color: black;">{{hotel.name}}</h3>
+            <h6 style="color: gray;">{{hotel.address}}</h6>
+            <div v-if="hotel.id" class="row">
+                <div class="col-xs-12 col-sm-6 first-row-block">
+                    <ul v-if="hotel.images" class="hotel-images">
+                        <li v-for="(image, index) in fiveImages" :key="index">
+                            <img width="100%" height="100%" :src="image" @click="handleClickImage(image)"/>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 first-row-block">
+                    <div class="general-info">
+                        <div class="info-item">
+                            <div>
+                                <svg t="1552223556077" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4445" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M368.896 192H224a32 32 0 0 0-32 32v137.888a32 32 0 0 0 64 0V256h112.896a32 32 0 0 0 0-64zM784.864 192H640a32 32 0 1 0 0 64h112.864v105.888a32 32 0 1 0 64 0V224a32 32 0 0 0-32-32zM368.896 777.92H256V672a32 32 0 1 0-64 0v137.92a32 32 0 0 0 32 32h144.896a32 32 0 1 0 0-64zM784.864 640a32 32 0 0 0-32 32v105.92H640a32 32 0 1 0 0 64h144.864a32 32 0 0 0 32-32V672a32 32 0 0 0-32-32z" p-id="4446"></path><path d="M912 48h-800c-35.296 0-64 28.704-64 64v800c0 35.296 28.704 64 64 64h800c35.296 0 64-28.704 64-64v-800c0-35.296-28.704-64-64-64z m-800 864v-800h800l0.064 800H112z" p-id="4447"></path></svg>
+                            </div>
+                            <span>{{hotel.maxArea}}</span>
+                            <span>最大宴会厅面积</span>
                         </div>
-                        <span>{{hotel.maxArea}}</span>
-                        <span>最大宴会厅面积</span>
-                    </div>
-                    <div class="info-item">
-                        <div>
-                            <svg t="1552223701581" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4683" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M620.256 806.176a32 32 0 0 1-28.256-31.776v-80.736a32 32 0 0 1 13.216-25.92c52.864-38.272 99.168-99.68 124.736-169.152a32 32 0 0 1 19.584-19.2c9.76-3.36 21.536-24.224 32.416-70.72 5.92-25.152-1.024-40.96-16.576-50.4a32 32 0 0 1-15.264-24.48C736.448 181.312 650.144 96 514.24 96c-138.24 0-227.936 88.064-240.672 242.432a32 32 0 0 1-15.04 24.544c-16.416 10.24-22.272 23.36-16.224 44.032 11.392 38.88 23.84 60.352 36.8 68.48a32 32 0 0 1 13.12 16.384c25.088 70.496 72.224 133.536 126.72 173.504a32 32 0 0 1 13.056 25.792V774.4a32 32 0 0 1-28.256 31.776c-125.12 14.72-212.608 54.4-225.952 88.672 2.304 1.056 5.12 2.176 8.384 3.296 17.184 6.016 43.52 11.52 77.12 16.096 65.504 8.896 155.168 13.76 248.704 13.76s183.2-4.864 248.704-13.76c33.6-4.576 59.936-10.08 77.12-16.096 3.296-1.12 6.08-2.24 8.384-3.296-13.344-34.272-100.832-73.92-225.92-88.64z m35.744-59.776c151.36 22.656 256 79.168 256 157.376C912 970.784 755.84 992 512 992s-400-21.216-400-88.224c0-78.208 104.64-134.72 256-157.376V706.88c-56.64-45.536-104.576-110.944-132.576-184.128-23.936-19.392-40.928-51.296-54.528-97.792-12.8-43.648 0.064-81.344 30.336-106.592C231.456 140.48 346.336 32 514.24 32c165.6 0 276.992 105.728 298.08 281.44 29.44 24.864 42.72 63.904 31.968 109.856-13.312 56.768-30.848 92.512-58.976 109.632-28.448 70.624-74.976 133.184-129.312 176.576v36.896z" p-id="4684"></path></svg>
+                        <div class="info-item">
+                            <div>
+                                <svg t="1552223701581" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4683" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M620.256 806.176a32 32 0 0 1-28.256-31.776v-80.736a32 32 0 0 1 13.216-25.92c52.864-38.272 99.168-99.68 124.736-169.152a32 32 0 0 1 19.584-19.2c9.76-3.36 21.536-24.224 32.416-70.72 5.92-25.152-1.024-40.96-16.576-50.4a32 32 0 0 1-15.264-24.48C736.448 181.312 650.144 96 514.24 96c-138.24 0-227.936 88.064-240.672 242.432a32 32 0 0 1-15.04 24.544c-16.416 10.24-22.272 23.36-16.224 44.032 11.392 38.88 23.84 60.352 36.8 68.48a32 32 0 0 1 13.12 16.384c25.088 70.496 72.224 133.536 126.72 173.504a32 32 0 0 1 13.056 25.792V774.4a32 32 0 0 1-28.256 31.776c-125.12 14.72-212.608 54.4-225.952 88.672 2.304 1.056 5.12 2.176 8.384 3.296 17.184 6.016 43.52 11.52 77.12 16.096 65.504 8.896 155.168 13.76 248.704 13.76s183.2-4.864 248.704-13.76c33.6-4.576 59.936-10.08 77.12-16.096 3.296-1.12 6.08-2.24 8.384-3.296-13.344-34.272-100.832-73.92-225.92-88.64z m35.744-59.776c151.36 22.656 256 79.168 256 157.376C912 970.784 755.84 992 512 992s-400-21.216-400-88.224c0-78.208 104.64-134.72 256-157.376V706.88c-56.64-45.536-104.576-110.944-132.576-184.128-23.936-19.392-40.928-51.296-54.528-97.792-12.8-43.648 0.064-81.344 30.336-106.592C231.456 140.48 346.336 32 514.24 32c165.6 0 276.992 105.728 298.08 281.44 29.44 24.864 42.72 63.904 31.968 109.856-13.312 56.768-30.848 92.512-58.976 109.632-28.448 70.624-74.976 133.184-129.312 176.576v36.896z" p-id="4684"></path></svg>
+                            </div>
+                            <span>{{hotel.maxPeople}}</span>
+                            <span>最多可容纳人数</span>
                         </div>
-                        <span>{{hotel.maxPeople}}</span>
-                        <span>最多可容纳人数</span>
-                    </div>
-                    <div class="info-item">
-                        <div>
-                            <svg t="1552223690073" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4562" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M160 896H96V128a64 64 0 0 1 64-64h384a64 64 0 0 1 64 64v768h-64V128H160v768zM864 480h64v416h-64zM80 960a32 32 0 0 1 0-64H928a32 32 0 0 1 0 64H80z" p-id="4563"></path><path d="M971.648 482.176a32 32 0 0 1-23.296 59.648L564.16 391.84a32 32 0 0 1 23.264-59.616l384.256 149.952zM704.384 586.016a32 32 0 1 1 0 64h-128.64a32 32 0 0 1 0-64h128.64zM704.384 714.016a32 32 0 1 1 0 64h-128.64a32 32 0 0 1 0-64h128.64zM320 576a32 32 0 0 1-64 0v-64a32 32 0 0 1 64 0v64zM320 352a32 32 0 0 1-64 0V288a32 32 0 0 1 64 0v64zM448 352a32 32 0 1 1-64 0V288a32 32 0 1 1 64 0v64zM448 576a32 32 0 0 1-64 0v-64a32 32 0 0 1 64 0v64zM320 928H256v-213.984h201.6V928h-64v-149.984H320z" p-id="4564"></path></svg>
+                        <div class="info-item">
+                            <div>
+                                <svg t="1552223690073" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4562" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M160 896H96V128a64 64 0 0 1 64-64h384a64 64 0 0 1 64 64v768h-64V128H160v768zM864 480h64v416h-64zM80 960a32 32 0 0 1 0-64H928a32 32 0 0 1 0 64H80z" p-id="4563"></path><path d="M971.648 482.176a32 32 0 0 1-23.296 59.648L564.16 391.84a32 32 0 0 1 23.264-59.616l384.256 149.952zM704.384 586.016a32 32 0 1 1 0 64h-128.64a32 32 0 0 1 0-64h128.64zM704.384 714.016a32 32 0 1 1 0 64h-128.64a32 32 0 0 1 0-64h128.64zM320 576a32 32 0 0 1-64 0v-64a32 32 0 0 1 64 0v64zM320 352a32 32 0 0 1-64 0V288a32 32 0 0 1 64 0v64zM448 352a32 32 0 1 1-64 0V288a32 32 0 1 1 64 0v64zM448 576a32 32 0 0 1-64 0v-64a32 32 0 0 1 64 0v64zM320 928H256v-213.984h201.6V928h-64v-149.984H320z" p-id="4564"></path></svg>
+                            </div>
+                            <span>{{hotel.ballrooms.length}}</span>
+                            <span>宴会厅数量</span>
                         </div>
-                        <span>{{hotel.ballrooms.length}}</span>
-                        <span>宴会厅数量</span>
-                    </div>
-                    <div style="clear: both;"></div>
-                    <!--<div class="info-item">-->
-                        <!--<div>-->
-                            <!--<svg t="1552223556077" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4445" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M368.896 192H224a32 32 0 0 0-32 32v137.888a32 32 0 0 0 64 0V256h112.896a32 32 0 0 0 0-64zM784.864 192H640a32 32 0 1 0 0 64h112.864v105.888a32 32 0 1 0 64 0V224a32 32 0 0 0-32-32zM368.896 777.92H256V672a32 32 0 1 0-64 0v137.92a32 32 0 0 0 32 32h144.896a32 32 0 1 0 0-64zM784.864 640a32 32 0 0 0-32 32v105.92H640a32 32 0 1 0 0 64h144.864a32 32 0 0 0 32-32V672a32 32 0 0 0-32-32z" p-id="4446"></path><path d="M912 48h-800c-35.296 0-64 28.704-64 64v800c0 35.296 28.704 64 64 64h800c35.296 0 64-28.704 64-64v-800c0-35.296-28.704-64-64-64z m-800 864v-800h800l0.064 800H112z" p-id="4447"></path></svg>-->
+                        <div style="clear: both;"></div>
+                        <!--<div class="info-item">-->
+                            <!--<div>-->
+                                <!--<svg t="1552223556077" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4445" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M368.896 192H224a32 32 0 0 0-32 32v137.888a32 32 0 0 0 64 0V256h112.896a32 32 0 0 0 0-64zM784.864 192H640a32 32 0 1 0 0 64h112.864v105.888a32 32 0 1 0 64 0V224a32 32 0 0 0-32-32zM368.896 777.92H256V672a32 32 0 1 0-64 0v137.92a32 32 0 0 0 32 32h144.896a32 32 0 1 0 0-64zM784.864 640a32 32 0 0 0-32 32v105.92H640a32 32 0 1 0 0 64h144.864a32 32 0 0 0 32-32V672a32 32 0 0 0-32-32z" p-id="4446"></path><path d="M912 48h-800c-35.296 0-64 28.704-64 64v800c0 35.296 28.704 64 64 64h800c35.296 0 64-28.704 64-64v-800c0-35.296-28.704-64-64-64z m-800 864v-800h800l0.064 800H112z" p-id="4447"></path></svg>-->
+                            <!--</div>-->
+                            <!--<span>{{hotel.maxArea}}</span>-->
+                            <!--<span>最大面积</span>-->
                         <!--</div>-->
-                        <!--<span>{{hotel.maxArea}}</span>-->
-                        <!--<span>最大面积</span>-->
-                    <!--</div>-->
-                </div>
-                <div style="width: 100%; position: relative;">
-                    <div style="display: inline-block; width: 40%;" class="additional-info">
-                        <div>
-                            <span>平均房价: {{hotel.guestRoomReferencePrice}}</span>
+                    </div>
+                    <div style="width: 100%; position: relative;">
+                        <div style="display: inline-block; width: 40%;" class="additional-info">
+                            <div>
+                                <span>平均房价: {{hotel.guestRoomReferencePrice}}</span>
+                            </div>
+                            <div>
+                                <span>最低餐标: {{hotel.guestRoomReferencePrice}}</span>
+                            </div>
                         </div>
-                        <div>
-                            <span>最低餐标: {{hotel.guestRoomReferencePrice}}</span>
+                        <div style="display: inline-block; width: 40%; position: absolute; top: 20px;">
+                            <div v-if="hotel.introDoc" class="title-rt-btn">
+                                <a target="_blank" :href="hotel.introDoc">下载酒店资料</a>
+                            </div>
                         </div>
                     </div>
-                    <div style="display: inline-block; width: 40%; position: absolute; top: 20px;">
-                        <div v-if="hotel.introDoc" class="title-rt-btn">
-                            <a target="_blank" :href="hotel.introDoc">下载酒店资料</a>
-                        </div>
-                    </div>
-                </div>
 
-                <!--<svg t="1552223690073" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4562" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M160 896H96V128a64 64 0 0 1 64-64h384a64 64 0 0 1 64 64v768h-64V128H160v768zM864 480h64v416h-64zM80 960a32 32 0 0 1 0-64H928a32 32 0 0 1 0 64H80z" p-id="4563"></path><path d="M971.648 482.176a32 32 0 0 1-23.296 59.648L564.16 391.84a32 32 0 0 1 23.264-59.616l384.256 149.952zM704.384 586.016a32 32 0 1 1 0 64h-128.64a32 32 0 0 1 0-64h128.64zM704.384 714.016a32 32 0 1 1 0 64h-128.64a32 32 0 0 1 0-64h128.64zM320 576a32 32 0 0 1-64 0v-64a32 32 0 0 1 64 0v64zM320 352a32 32 0 0 1-64 0V288a32 32 0 0 1 64 0v64zM448 352a32 32 0 1 1-64 0V288a32 32 0 1 1 64 0v64zM448 576a32 32 0 0 1-64 0v-64a32 32 0 0 1 64 0v64zM320 928H256v-213.984h201.6V928h-64v-149.984H320z" p-id="4564"></path></svg>-->
-                <!--<svg t="1552223728498" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4799" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M800 736H448a32 32 0 0 0 0 64h352a32 32 0 0 0 0-64zM800 480H448a32 32 0 0 0 0 64h352a32 32 0 0 0 0-64zM800 224H448a32 32 0 0 0 0 64h352a32 32 0 0 0 0-64zM304 736h-64a32 32 0 0 0 0 64h64a32 32 0 0 0 0-64zM304 480h-64a32 32 0 0 0 0 64h64a32 32 0 0 0 0-64zM304 224h-64a32 32 0 0 0 0 64h64a32 32 0 0 0 0-64z" p-id="4800"></path><path d="M864 96H160a96 96 0 0 0-96 96v640a96 96 0 0 0 96 96h704a96 96 0 0 0 96-96V192a96 96 0 0 0-96-96z m32 736a32 32 0 0 1-32 32H160a32 32 0 0 1-32-32v-160h672a32 32 0 0 0 0-64H128v-192h672a32 32 0 0 0 0-64H128V192a32 32 0 0 1 32-32h704a32 32 0 0 1 32 32v640z" p-id="4801"></path></svg>-->
-                <!--<svg t="1552223701581" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4683" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M620.256 806.176a32 32 0 0 1-28.256-31.776v-80.736a32 32 0 0 1 13.216-25.92c52.864-38.272 99.168-99.68 124.736-169.152a32 32 0 0 1 19.584-19.2c9.76-3.36 21.536-24.224 32.416-70.72 5.92-25.152-1.024-40.96-16.576-50.4a32 32 0 0 1-15.264-24.48C736.448 181.312 650.144 96 514.24 96c-138.24 0-227.936 88.064-240.672 242.432a32 32 0 0 1-15.04 24.544c-16.416 10.24-22.272 23.36-16.224 44.032 11.392 38.88 23.84 60.352 36.8 68.48a32 32 0 0 1 13.12 16.384c25.088 70.496 72.224 133.536 126.72 173.504a32 32 0 0 1 13.056 25.792V774.4a32 32 0 0 1-28.256 31.776c-125.12 14.72-212.608 54.4-225.952 88.672 2.304 1.056 5.12 2.176 8.384 3.296 17.184 6.016 43.52 11.52 77.12 16.096 65.504 8.896 155.168 13.76 248.704 13.76s183.2-4.864 248.704-13.76c33.6-4.576 59.936-10.08 77.12-16.096 3.296-1.12 6.08-2.24 8.384-3.296-13.344-34.272-100.832-73.92-225.92-88.64z m35.744-59.776c151.36 22.656 256 79.168 256 157.376C912 970.784 755.84 992 512 992s-400-21.216-400-88.224c0-78.208 104.64-134.72 256-157.376V706.88c-56.64-45.536-104.576-110.944-132.576-184.128-23.936-19.392-40.928-51.296-54.528-97.792-12.8-43.648 0.064-81.344 30.336-106.592C231.456 140.48 346.336 32 514.24 32c165.6 0 276.992 105.728 298.08 281.44 29.44 24.864 42.72 63.904 31.968 109.856-13.312 56.768-30.848 92.512-58.976 109.632-28.448 70.624-74.976 133.184-129.312 176.576v36.896z" p-id="4684"></path></svg>-->
+                    <!--<svg t="1552223690073" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4562" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M160 896H96V128a64 64 0 0 1 64-64h384a64 64 0 0 1 64 64v768h-64V128H160v768zM864 480h64v416h-64zM80 960a32 32 0 0 1 0-64H928a32 32 0 0 1 0 64H80z" p-id="4563"></path><path d="M971.648 482.176a32 32 0 0 1-23.296 59.648L564.16 391.84a32 32 0 0 1 23.264-59.616l384.256 149.952zM704.384 586.016a32 32 0 1 1 0 64h-128.64a32 32 0 0 1 0-64h128.64zM704.384 714.016a32 32 0 1 1 0 64h-128.64a32 32 0 0 1 0-64h128.64zM320 576a32 32 0 0 1-64 0v-64a32 32 0 0 1 64 0v64zM320 352a32 32 0 0 1-64 0V288a32 32 0 0 1 64 0v64zM448 352a32 32 0 1 1-64 0V288a32 32 0 1 1 64 0v64zM448 576a32 32 0 0 1-64 0v-64a32 32 0 0 1 64 0v64zM320 928H256v-213.984h201.6V928h-64v-149.984H320z" p-id="4564"></path></svg>-->
+                    <!--<svg t="1552223728498" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4799" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M800 736H448a32 32 0 0 0 0 64h352a32 32 0 0 0 0-64zM800 480H448a32 32 0 0 0 0 64h352a32 32 0 0 0 0-64zM800 224H448a32 32 0 0 0 0 64h352a32 32 0 0 0 0-64zM304 736h-64a32 32 0 0 0 0 64h64a32 32 0 0 0 0-64zM304 480h-64a32 32 0 0 0 0 64h64a32 32 0 0 0 0-64zM304 224h-64a32 32 0 0 0 0 64h64a32 32 0 0 0 0-64z" p-id="4800"></path><path d="M864 96H160a96 96 0 0 0-96 96v640a96 96 0 0 0 96 96h704a96 96 0 0 0 96-96V192a96 96 0 0 0-96-96z m32 736a32 32 0 0 1-32 32H160a32 32 0 0 1-32-32v-160h672a32 32 0 0 0 0-64H128v-192h672a32 32 0 0 0 0-64H128V192a32 32 0 0 1 32-32h704a32 32 0 0 1 32 32v640z" p-id="4801"></path></svg>-->
+                    <!--<svg t="1552223701581" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4683" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M620.256 806.176a32 32 0 0 1-28.256-31.776v-80.736a32 32 0 0 1 13.216-25.92c52.864-38.272 99.168-99.68 124.736-169.152a32 32 0 0 1 19.584-19.2c9.76-3.36 21.536-24.224 32.416-70.72 5.92-25.152-1.024-40.96-16.576-50.4a32 32 0 0 1-15.264-24.48C736.448 181.312 650.144 96 514.24 96c-138.24 0-227.936 88.064-240.672 242.432a32 32 0 0 1-15.04 24.544c-16.416 10.24-22.272 23.36-16.224 44.032 11.392 38.88 23.84 60.352 36.8 68.48a32 32 0 0 1 13.12 16.384c25.088 70.496 72.224 133.536 126.72 173.504a32 32 0 0 1 13.056 25.792V774.4a32 32 0 0 1-28.256 31.776c-125.12 14.72-212.608 54.4-225.952 88.672 2.304 1.056 5.12 2.176 8.384 3.296 17.184 6.016 43.52 11.52 77.12 16.096 65.504 8.896 155.168 13.76 248.704 13.76s183.2-4.864 248.704-13.76c33.6-4.576 59.936-10.08 77.12-16.096 3.296-1.12 6.08-2.24 8.384-3.296-13.344-34.272-100.832-73.92-225.92-88.64z m35.744-59.776c151.36 22.656 256 79.168 256 157.376C912 970.784 755.84 992 512 992s-400-21.216-400-88.224c0-78.208 104.64-134.72 256-157.376V706.88c-56.64-45.536-104.576-110.944-132.576-184.128-23.936-19.392-40.928-51.296-54.528-97.792-12.8-43.648 0.064-81.344 30.336-106.592C231.456 140.48 346.336 32 514.24 32c165.6 0 276.992 105.728 298.08 281.44 29.44 24.864 42.72 63.904 31.968 109.856-13.312 56.768-30.848 92.512-58.976 109.632-28.448 70.624-74.976 133.184-129.312 176.576v36.896z" p-id="4684"></path></svg>-->
+                </div>
             </div>
-        </div>
 
-        <div v-if="hotel.id">
-            <h4 style="color: black;margin-top: 20px;margin-bottom:20px;">宴会厅信息</h4>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">宴会厅名字</th>
-                    <th scope="col">面积</th>
-                    <th scope="col">层高</th>
-                    <th scope="col">全天价格</th>
-                    <th scope="col">半天价格</th>
-                    <th scope="col">歌剧式人数</th>
-                    <th scope="col">课桌式人数</th>
-                    <th scope="col">圆桌式桌数</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="room in hotel.ballrooms">
-                        <td>{{room.name}}</td>
-                        <td>{{room.area}}m²</td>
-                        <td>{{room.height}}米</td>
-                        <td>{{room.allDayPrice}}</td>
-                        <td>{{room.halfDayPrice}}</td>
-                        <td>{{room.maxPeople ? room.maxPeople + '人' : '-'}}</td>
-                        <td>{{room.kezhuoMaxPeople ? room.kezhuoMaxPeople + '人' : '-'}}</td>
-                        <td>{{room.yuanzhuoMaxTable ? room.yuanzhuoMaxTable + '桌' : '-'}}</td>
+            <div v-if="hotel.id">
+                <h4 style="color: black;margin-top: 20px;margin-bottom:20px;">宴会厅信息</h4>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">宴会厅名字</th>
+                        <th scope="col">面积</th>
+                        <th scope="col">层高</th>
+                        <th scope="col">全天价格</th>
+                        <th scope="col">半天价格</th>
+                        <th scope="col">歌剧式人数</th>
+                        <th scope="col">课桌式人数</th>
+                        <th scope="col">圆桌式桌数</th>
                     </tr>
-                </tbody>
-            </table>
-            <h4 style="color: black;margin-top: 20px;margin-bottom:20px;">客房信息</h4>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">房型</th>
-                    <th scope="col">床型</th>
-                    <th scope="col">面积</th>
-                    <th scope="col">数量</th>
-                    <th scope="col">宽带</th>
-                    <th scope="col">刊例价</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="room in hotel.rooms">
-                    <td>{{room.type}}</td>
-                    <td>{{room.bedType}}</td>
-                    <td>{{room.area}}m²</td>
-                    <td>{{room.amount ? room.amount + '间' : '-'}}</td>
-                    <td>{{room.network}}</td>
-                    <td>{{room.price ? room.price + '元' : '-'}}</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        <tr v-for="room in hotel.ballrooms">
+                            <td>{{room.name}}</td>
+                            <td>{{room.area}}m²</td>
+                            <td>{{room.height}}米</td>
+                            <td>{{room.allDayPrice}}万</td>
+                            <td>{{room.halfDayPrice}}万</td>
+                            <td>{{room.maxPeople ? room.maxPeople + '人' : '-'}}</td>
+                            <td>{{room.kezhuoMaxPeople ? room.kezhuoMaxPeople + '人' : '-'}}</td>
+                            <td>{{room.yuanzhuoMaxTable ? room.yuanzhuoMaxTable + '桌' : '-'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4 style="color: black;margin-top: 20px;margin-bottom:20px;">客房信息</h4>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">房型</th>
+                        <th scope="col">床型</th>
+                        <th scope="col">面积</th>
+                        <th scope="col">数量</th>
+                        <th scope="col">宽带</th>
+                        <th scope="col">刊例价</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="room in hotel.rooms">
+                        <td>{{room.type}}</td>
+                        <td>{{room.bedType}}</td>
+                        <td>{{room.area}}m²</td>
+                        <td>{{room.amount ? room.amount + '间' : '-'}}</td>
+                        <td>{{room.network}}</td>
+                        <td>{{room.price ? room.price + '元' : '-'}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <!--全局遮挡-->
-        <div v-if="showBigImage" class="mask" @click="handleClickMask()">
-            <img width="750" height="575" :src="curImage" />
+            <!--全局遮挡-->
+            <div v-if="showBigImage" class="mask" @click="handleClickMask()">
+                <img width="750" height="575" :src="curImage" />
+            </div>
         </div>
     </div>
 </section>
@@ -533,7 +597,7 @@
         hotelId = Number.parseInt(hotelId)
       }
 
-      const data = [
+      const data1 = [
         {
           "id": 1,
           "name": "浦东丽思卡尔顿酒店",
@@ -1142,23 +1206,19 @@
       ]
 
       const that = this
-      // $.get('data/hotels.json', function(data) {
-      //   Vue.nextTick(function() {
-          data.forEach(function(hotel) {
-            if(hotel.id === hotelId) {
-              hotel.maxPeople = Math.max(...(hotel.ballrooms.map(function(room) {
-                return room.maxPeople
-              })))
-              hotel.maxArea = Math.max(...(hotel.ballrooms.map(function(room) {
-                return room.area
-              })))
-              hotel.curImgIndex = 0
+      $.get('http://47.110.245.156/backend/manage/api/place-detail/' + hotelId, function(hotel) {
+        Vue.nextTick(function() {
+          hotel.maxPeople = Math.max(...(hotel.ballrooms.map(function(room) {
+            return room.maxPeople
+          })))
+          hotel.maxArea = Math.max(...(hotel.ballrooms.map(function(room) {
+            return room.area
+          })))
+          hotel.curImgIndex = 0
 
-              that.hotel = hotel
-            }
-          })
-        // })
-      // })
+          that.hotel = hotel
+        })
+      })
     }
   })
 
