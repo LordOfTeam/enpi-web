@@ -304,13 +304,13 @@
     </style>
     <div id="app" >
         <form class="form-inline" style="margin: 0 auto;width: 900px;margin-bottom: 10px;">
-            <label class="form-title col-form-label">活动城市</label>
+            <label class="form-title col-form-label">城市</label>
             <div class="form-details" style="display: inline-block;">
                 <select id="sub-form-city" class="form-control" >
                     <option selected>上海</option>
                 </select>
             </div>
-            <label class="form-title col-form-label">活动区域</label>
+            <label class="form-title col-form-label">区域</label>
             <div class="form-details" style="display: inline-block;">
                 <select id="sub-form-area" class="form-control" v-model="area">
                     <option value="" selected>全部</option>
@@ -385,7 +385,7 @@
                 </select>
             </div>
         </form>
-        <div v-if="loading" :style="{'height': '400px', 'line-height': '400px'}">
+        <div v-if="loading" :style="{'height': '300px', 'line-height': '300px'}">
             <div class="spinner">
                 <div class="rect1"></div>
                 <div class="rect2"></div>
@@ -417,11 +417,11 @@
                 </div>
                 <p class="address">{{hotel.address}}</p>
                 <p class="info-item clear-flt">
-                    <span>最大厅面积：{{hotel.maxArea}}</span>
-                    <span>最多容纳：{{hotel.maxPeople}}</span>
+                    <span>最大厅面积：{{hotel.maxBallroomArea}}</span>
+                    <span>最多容纳：{{hotel.maxAllPeople}}</span>
                 </p>
                 <p class="info-item clear-flt">
-                    <!--<span>会场数量：{{hotel.ballrooms.length}}</span>-->
+                    <span>会场数量：{{hotel.roomNum}}</span>
                     <span>客房参考价：<b style="color: #f95812">￥{{hotel.guestRoomReferencePrice}}</b></b>
                 </p>
             </div>
@@ -580,7 +580,7 @@
 
         // this.area = document.getElementById('sub-form-area').value
         if(this.area) {
-          params.push('area=' + this.area)
+          params.push('city_area=' + this.area)
         }
 
         // this.price = document.getElementById('sub-form-price').value
