@@ -304,7 +304,7 @@
             <h6 style="color: gray;">{{hotel.address}}</h6>
             <div v-if="hotel.id" class="row">
                 <div class="col-xs-12 col-sm-6 first-row-block">
-                    <ul v-if="hotel.images" class="hotel-images">
+                    <ul v-if="hotel.image" class="hotel-images">
                         <li v-for="(image, index) in fiveImages" :key="index">
                             <img width="100%" height="100%" :src="'http://47.110.245.156/backend/media/' + image" @click="handleClickImage(image)"/>
                         </li>
