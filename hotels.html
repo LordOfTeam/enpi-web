@@ -400,7 +400,7 @@
         <div v-else class="hotel-row" v-for="hotel in hotels">
             <!--{{hotel.name}}-->
             <div class="hotel-preview">
-                <img class="preview-img" :src="'http://47.110.245.156/' + hotel.image[hotel.curImgIndex]">
+                <img class="preview-img" :src="'http://47.110.245.156/backend/media/' + hotel.image[hotel.curImgIndex]">
                 <div class="preview-footer clear-flt">
                     <img v-for="(imageSrc, imgIndex) in hotel.image"
                          :src="'http://47.110.245.156/backend/media/' + imageSrc"
