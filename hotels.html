@@ -403,7 +403,7 @@
                 <img class="preview-img" :src="'http://47.110.245.156/' + hotel.image[hotel.curImgIndex]">
                 <div class="preview-footer clear-flt">
                     <img v-for="(imageSrc, imgIndex) in hotel.image"
-                         :src="'http://47.110.245.156/backend/media/uploads/' + imageSrc"
+                         :src="'http://47.110.245.156/backend/media/' + imageSrc"
                          :style="{ border: imgIndex === hotel.curImgIndex ? '1px solid red' : '' }"
                          @mouseenter="hotel.curImgIndex = imgIndex"/>
                 </div>
@@ -412,7 +412,7 @@
                 <div class="title">
                     <h3 class="title-link"><a target="_blank" :href="'/detail.html?hotelId=' + hotel.id">{{hotel.name}}</a></h3>
                     <div v-if="hotel.introDoc" class="title-rt-btn">
-                        <a target="_blank" :href="'http://47.110.245.156/backend/media/uploads/' + hotel.introDoc">下载酒店资料</a>
+                        <a target="_blank" :href="'http://47.110.245.156/backend/media/' + hotel.introDoc">下载酒店资料</a>
                     </div>
                 </div>
                 <p class="address">{{hotel.address}}</p>
