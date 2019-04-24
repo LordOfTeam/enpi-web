@@ -345,11 +345,11 @@
                     <div style="width: 100%; position: relative;">
                         <div style="display: inline-block; width: 40%;" class="additional-info">
                             <div>
-                                <span>平均房价: {{hotel.guestRoomReferencePrice}}</span>
+                                <span>平均房价: {{hotel.hallPrice}}</span>
                             </div>
-                            <div>
-                                <span>最低餐标: {{hotel.guestRoomReferencePrice}}</span>
-                            </div>
+                            <!--<div>-->
+                                <!--<span>最低餐标: {{hotel.guestRoomReferencePrice}}</span>-->
+                            <!--</div>-->
                         </div>
                         <div style="display: inline-block; width: 40%; position: absolute; top: 20px;">
                             <div v-if="hotel.introDoc" class="title-rt-btn">
@@ -374,7 +374,7 @@
                         <th scope="col">层高</th>
                         <th scope="col">全天价格</th>
                         <th scope="col">半天价格</th>
-                        <th scope="col">歌剧式人数</th>
+                        <th scope="col">剧院式人数</th>
                         <th scope="col">课桌式人数</th>
                         <th scope="col">圆桌式桌数</th>
                     </tr>
@@ -400,8 +400,8 @@
                         <th scope="col">床型</th>
                         <th scope="col">面积</th>
                         <th scope="col">数量</th>
-                        <th scope="col">宽带</th>
-                        <th scope="col">刊例价</th>
+                        <!--<th scope="col">宽带</th>-->
+                        <th scope="col">参考价</th>
                     </tr>
                     </thead>
                     <tbody>
