@@ -117,14 +117,14 @@
         }
         .example div {
             margin: 0 auto;
-            width: 796px;
-            height: 446px;
+            width: 876px;
+            height: 491px;
             overflow: hidden;
         }
 
         .example img {
-            width: 800px;
-            height: 450px;
+            width: 880px;
+            height: 495px;
             position: relative;
             left: -2px;
             bottom: 2px;
@@ -132,15 +132,24 @@
     </style>
 
     <div class="example">
-        <div>
-            <img src="img/example/1.jpg" alt="">
-        </div>
-        <div>
-            <img src="img/example/2.jpg" alt="">
-        </div>
-        <div>
-            <img src="img/example/3.jpg" alt="">
-        </div>
+        <!--<div>-->
+            <!--<img src="img/example/1.jpg" alt="">-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<img src="img/example/2.jpg" alt="">-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<img src="img/example/3.jpg" alt="">-->
+        <!--</div>-->
+        <script>
+            for(var i = 10; i < 23; i++) {
+              document.write(`
+              <div>
+                <img src="img/example/${i}.jpg" alt="">
+              </div>
+              `)
+            }
+        </script>
     </div>
 
 </section>
@@ -164,7 +173,7 @@
                 <div class="single-footer-widget contact_wd" style="display: flex; width: 100%; margin-top: 20px;">
                     <h6 class="footer_title" style="display: inline-block; flex: 0 1 100px;">联系我们</h6>
                     <div style="display: inline-block; flex: 1 0;">
-                        <p style="margin-bottom: 5px;">上海市真南路150号（德必易园）D101室</p>
+                        <p style="margin-bottom: 5px;">上海市普陀区真南路150号（德必易园）D101室</p>
                         <p style="margin-bottom: 5px;">400-0708-588 （周一到周日 10:00-19:00）</p>
                         <a href="mailto:service@enpai-e.com">service@enpai-e.com</a>
                     </div>
