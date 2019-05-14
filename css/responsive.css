@@ -37,10 +37,10 @@
 	/* Home Banner Area css
 	============================================================================================ */
 	.home_banner_area {
-		min-height: 700px;
+		min-height: 400px;
 	}
 	.home_banner_area .banner_inner {
-		min-height: 700px;
+		min-height: 400px;
 	}
 	/* End Home Banner Area css
 	============================================================================================ */
@@ -217,10 +217,10 @@
 }
 @media (max-width:767px){
 	.home_banner_area {
-		min-height: 700px;
+		min-height: 400px;
 	}
 	.home_banner_area .banner_inner {
-		min-height: 700px;
+		min-height: 400px;
 	}
 	.home_banner_area .banner_inner .banner_content {
 		margin-top: 0px;
