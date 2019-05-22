@@ -428,11 +428,41 @@
                 </p>
             </div>
         </div>
+
+        <div v-if="pages.length" style="text-align: center; padding-top: 30px; padding-bottom: 30px; color: black;">
+            <div v-for="pageNum in pages" :class="'page-btn ' + (pageNum + 1 === page && 'page-btn-active')" :style="'font-size: 1.2em;'" @click="goToPage(pageNum + 1)">
+               {{pageNum + 1}}
+            </div>
+        </div>
     </div>
 </section>
 <!--================Contact Area =================-->
 
+<style>
+    .page-btn {
+        height: 30px;
+        width: 30px;
+        border: 1px solid #ddd;
+        line-height: 30px;
+        display: inline-block;
+        margin-left: 5px;
+        margin-right: 5px;
+        color: gray;
+    }
 
+    .page-btn:hover {
+        color: #207bee;
+        background: #f4f9ff;
+        border-color: #70aaf4;
+        cursor: pointer;
+    }
+
+    .page-btn-active {
+        background: #207bee;
+        border: 1px solid #207bee;
+        color: white;
+    }
+</style>
 
 <!--================ start footer Area  =================-->
 <footer class="footer-area p_120">
@@ -449,10 +479,15 @@
             <div class="col-sm-12">
                 <div class="single-footer-widget contact_wd" style="display: flex; width: 100%; margin-top: 20px;">
                     <h6 class="footer_title" style="display: inline-block; flex: 0 1 100px;">联系我们</h6>
-                    <div style="display: inline-block; flex: 1 0;">
-                        <p style="margin-bottom: 5px;">上海市普陀区真南路150号（德必易园）D101室</p>
-                        <p style="margin-bottom: 5px;">400-0708-588 （周一到周日 10:00-19:00）</p>
-                        <a href="mailto:service@enpai-e.com">service@enpai-e.com</a>
+                    <div style="display: inline-block; flex: 1 0;line-height: 100%;">
+                        <div style="display: inline-block;margin-right: 50px;">
+                            <p style="margin-bottom: 5px;">上海市普陀区真南路150号（德必易园）D101室</p>
+                            <p style="margin-bottom: 5px;">400-0708-588 （周一到周日 10:00-19:00）</p>
+                            <a href="mailto:service@enpai-e.com">service@enpai-e.com</a>
+                        </div>
+                        <div style="display: inline-block;">
+                            <img style="width: 100px; width: 100px;" src="img/wechat.jpeg" />
+                        </div>
                     </div>
                     <!--<a href="tel:01265325689746">012-6532-568-9746</a>			-->
                 </div>
@@ -565,7 +600,15 @@
         area: '',
         people: '',
         price: '',
-        arearange: ''
+        arearange: '',
+        total: 0,
+        page: 1
+      }
+    },
+
+    computed: {
+      pages() {
+        return [...Array(Math.floor(this.total / 10)).keys()]
       }
     },
 
@@ -573,12 +616,20 @@
     },
 
     methods: {
-      getList() {
+      goToPage(pageNum) {
+        this.getList(pageNum)
+      },
+
+      getList(pageNum) {
 
         this.hotels = []
         this.loading = true
 
         var params = []
+
+        if (pageNum) {
+          params.push('page=' + pageNum)
+        }
 
         // this.area = document.getElementById('sub-form-area').value
         if(this.area) {
@@ -633,6 +684,8 @@
 
             this.hotels = data.results
             this.loading = false
+            this.total = data.total
+            this.page = data.page
           })
       })
       }
@@ -1288,6 +1341,8 @@
 
           this.hotels = data.results
           this.loading = false
+          this.total = data.total
+          this.page = data.page
         })
       })
     }
