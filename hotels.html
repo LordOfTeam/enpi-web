@@ -630,6 +630,10 @@
         if (pageNum) {
           params.push('page=' + pageNum)
         }
+        else {
+          this.page = 1
+          params.push('page=1')
+        }
 
         // this.area = document.getElementById('sub-form-area').value
         if(this.area) {
@@ -1327,7 +1331,6 @@
 
       this.loading = true
       $.get('http://47.110.245.156/backend/manage/api/place-lists', (data) => {
-        console.log('that.hotels', data)
         Vue.nextTick(() => {
           data.results && data.results.forEach(function(hotel) {
             // hotel.maxPeople = Math.max(...(hotel.ballrooms.map(function(room) {
