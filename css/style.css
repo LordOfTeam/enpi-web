@@ -3991,6 +3991,7 @@ h6 {
 /*============== footer-area css ===============*/
 .footer-area {
   background: #222222;
+  padding-bottom: 30px;
 }
 
 .single-footer-widget p {
@@ -4154,6 +4155,7 @@ h6 {
   font-size: 18px;
   font-style: italic;
   margin-left: 20px;
+  color: #8c8c8c;
 }
 
 .clients_slider .item {
