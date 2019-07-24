@@ -4153,7 +4153,7 @@ h6 {
 
 .header-contact {
   font-size: 18px;
-  font-style: italic;
+  /*font-style: italic;*/
   margin-left: 20px;
   color: #8c8c8c;
 }
