@@ -422,7 +422,7 @@
             </div>
 
             <!--全局遮挡-->
-            <div v-if="showBigImage" class="mask" @click="handleClickMask()">
+            <div :style="{ visibility: showBigImage ? 'visible' : 'hidden' }" class="mask" @click="handleClickMask()">
                 <img width="750" height="575" :src="curImage" />
             </div>
         </div>
